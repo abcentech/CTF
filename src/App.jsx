@@ -9,7 +9,7 @@ import Impact from './pages/Impact';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/CTF/">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
