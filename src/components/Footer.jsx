@@ -1,43 +1,50 @@
 import React from 'react';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
-import { Shield, Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Shield, Mail, MapPin, ExternalLink } from 'lucide-react';
 import { navItems } from '../data/navData';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white pt-20 pb-10">
-      <div className="container overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-[#1A1A1A] text-white pt-24 pb-12 overflow-hidden relative">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ctf-crimson via-ctf-pink to-ctf-purple" />
+      
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           {/* Brand Column */}
-          <div className="flex flex-col gap-6">
-            <NavLink smooth to="/#" className="flex items-center gap-2">
-              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center text-primary">
+          <div className="flex flex-col gap-8">
+            <NavLink smooth to="/#" className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-ctf-crimson rounded-xl flex items-center justify-center text-white shadow-xl shadow-ctf-crimson/20">
                 <Shield size={28} strokeWidth={2.5} />
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl font-bold tracking-tight leading-tight">CTF</span>
-                <span className="text-[11px] font-semibold text-accent tracking-[0.2em] leading-none uppercase">Foundation</span>
+                <span className="text-3xl font-black tracking-tighter leading-[0.8]">CTF</span>
+                <span className="text-[12px] font-bold text-ctf-pink tracking-[0.2em] leading-none uppercase">Foundation</span>
               </div>
             </NavLink>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              Empowering Christian teenagers across campuses with spiritual growth, academic excellence, and leadership training.
+            <p className="text-gray-400 text-sm leading-relaxed font-light">
+              Raising a Generation of Spirit-Filled Teenagers to Change the World. Registered with Corporate Affairs Commission (CAC), Nigeria.
             </p>
-            <div className="flex gap-4">
-              {[Facebook, Twitter, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-accent hover:border-accent hover:text-primary transition-all">
-                  <Icon size={18} />
-                </a>
-              ))}
+            <div className="flex flex-wrap gap-3">
+              <NavLink smooth to="/get-involved#member" className="px-4 py-3 rounded-xl bg-white/5 text-sm font-bold uppercase tracking-widest hover:bg-ctf-crimson transition-all">
+                Join
+              </NavLink>
+              <a href="mailto:CTFinquiries@gmail.com" className="px-4 py-3 rounded-xl bg-white/5 text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+                Email
+              </a>
+              <NavLink smooth to="/faq" className="px-4 py-3 rounded-xl bg-white/5 text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+                FAQ
+              </NavLink>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Site Navigation */}
           <div>
-            <h4 className="text-lg font-bold mb-8 text-accent font-serif">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-10 text-white uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Navigation</h4>
             <ul className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  <NavLink smooth to={item.path} className="text-slate-400 hover:text-white text-sm transition-colors">
+                  <NavLink smooth to={item.path} className="text-gray-400 hover:text-ctf-pink text-sm transition-colors flex items-center gap-2 group">
+                    <span className="w-1 h-1 bg-ctf-crimson rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                     {item.label}
                   </NavLink>
                 </li>
@@ -45,13 +52,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Programs Snippet */}
+          {/* Flagship Programs */}
           <div>
-            <h4 className="text-lg font-bold mb-8 text-accent font-serif">Our Initiatives</h4>
+            <h4 className="text-lg font-bold mb-10 text-white uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Flagship Programs</h4>
             <ul className="flex flex-col gap-4">
-              {navItems.find(i => i.label === 'PROGRAMS').dropdown.slice(0, 4).map((sub) => (
+              {navItems.find(i => i.label === 'PROGRAMS')?.dropdown.map((sub) => (
                 <li key={sub.label}>
-                  <NavLink smooth to={`/programs${sub.href}`} className="text-slate-400 hover:text-white text-sm transition-colors">
+                  <NavLink smooth to={sub.href} className="text-gray-400 hover:text-ctf-pink text-sm transition-colors flex items-center gap-2 group">
+                    <ExternalLink size={12} className="opacity-40 group-hover:opacity-100 group-hover:text-ctf-crimson transition-all" />
                     {sub.label}
                   </NavLink>
                 </li>
@@ -59,33 +67,44 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div id="contact">
-            <h4 className="text-lg font-bold mb-8 text-accent font-serif">Contact Us</h4>
-            <ul className="flex flex-col gap-5">
-              <li className="flex items-start gap-3">
-                <MapPin className="text-accent shrink-0" size={18} />
-                <span className="text-slate-400 text-sm">Lagos, Nigeria | Abuja, Nigeria</span>
+          {/* Contact Details */}
+          <div>
+            <h4 className="text-lg font-bold mb-10 text-white uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Contact</h4>
+            <ul className="flex flex-col gap-6">
+              <li className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-ctf-purple/20 flex items-center justify-center text-ctf-purple shrink-0">
+                  <MapPin size={18} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs uppercase font-bold text-gray-500 mb-1">Headquarters</span>
+                  <span className="text-gray-300 text-sm">Egbeda, Lagos, Nigeria</span>
+                </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="text-accent shrink-0" size={18} />
-                <span className="text-slate-400 text-sm">+234 800 CTF HELP</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="text-accent shrink-0" size={18} />
-                <span className="text-slate-400 text-sm">info@ctffoundation.org</span>
+              <li className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-ctf-crimson/20 flex items-center justify-center text-ctf-crimson shrink-0">
+                  <Mail size={18} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs uppercase font-bold text-gray-500 mb-1">Email Us</span>
+                  <a href="mailto:CTFinquiries@gmail.com" className="text-gray-300 text-sm hover:text-ctf-crimson transition-colors">CTFinquiries@gmail.com</a>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-xs">
-            © {new Date().getFullYear()} Christian Teenagers Foundation. All Rights Reserved.
-          </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-slate-500 text-xs hover:text-white">Privacy Policy</a>
-            <a href="#" className="text-slate-500 text-xs hover:text-white">Terms of Service</a>
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col items-center md:items-start">
+            <p className="text-gray-500 text-xs font-medium">
+              © 2026 Christian Teenagers Foundation (CTF). All rights reserved.
+            </p>
+            <p className="text-[10px] text-gray-600 uppercase tracking-widest mt-1">
+              SCUML Certified | EFCC Compliance | CAC Registered
+            </p>
+          </div>
+          <div className="flex gap-8">
+            <NavLink smooth to="/governance" className="text-gray-500 text-xs hover:text-ctf-pink uppercase tracking-widest transition-colors">Compliance</NavLink>
+            <NavLink smooth to="/about#story" className="text-gray-500 text-xs hover:text-ctf-pink uppercase tracking-widest transition-colors">Our Story</NavLink>
           </div>
         </div>
       </div>

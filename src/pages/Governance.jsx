@@ -1,72 +1,147 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ShieldCheck, FileText, PieChart, Lock } from 'lucide-react';
+import { motion as Motion } from 'framer-motion';
+import { Gavel, ShieldCheck, FileText, Scale } from 'lucide-react';
 
 const Governance = () => {
-  const sections = [
-    {
-      id: 'compliance',
-      title: 'Governance & Compliance',
-      content: 'Christian Teenagers Foundation is fully registered and compliant with all relevant regulatory bodies in Nigeria. We maintain the highest standards of ethical conduct and legal adherence in all our operations.',
-      icon: ShieldCheck
-    },
-    {
-      id: 'structure',
-      title: 'Organizational Structure',
-      content: 'Our foundation is guided by a Board of Trustees, an Advisory Council of seasoned ministers and professionals, and an Executive Management Team responsible for day-to-day operations.',
-      icon: FileText
-    },
-    {
-      id: 'financial',
-      title: 'Financial Transparency',
-      content: 'We believe in absolute accountability. Our annual financial statements are audited by reputable firms and made available to our partners and donors to ensure trust and transparency.',
-      icon: PieChart
-    },
-    {
-      id: 'safeguarding',
-      title: 'Safeguarding Commitment',
-      content: 'The safety and well-being of every teenager in our care is our top priority. We have a robust safeguarding policy that guides all interactions between students, mentors, and staff.',
-      icon: Lock
-    }
+  const complianceRows = [
+    { label: 'CAC Registration', status: 'Active', color: 'ctf-crimson' },
+    { label: 'SCUML Certification', status: 'Active', color: 'ctf-purple' },
+    { label: 'EFCC Compliance', status: 'Verified', color: 'ctf-pink' },
+    { label: 'Annual Reports', status: 'Submitted', color: 'ctf-crimson' },
   ];
 
+  const toneClasses = {
+    'ctf-crimson': 'bg-ctf-crimson',
+    'ctf-purple': 'bg-ctf-purple',
+    'ctf-pink': 'bg-ctf-pink',
+  };
+
   return (
-    <div className="pt-20">
-      <section className="bg-primary py-24 text-white">
-        <div className="container text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl mb-6"
-          >
-            Our <span className="text-accent">Governance</span>
-          </motion.h1>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            Built on integrity and accountability. Explore how we manage our foundation to ensure lasting impact.
-          </p>
+    <div className="pt-24 flex flex-col bg-bg">
+      <section className="py-20 bg-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <Motion.h3
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-ctf-pink font-black uppercase tracking-[0.3em] mb-4 text-sm"
+            >
+              Integrity & Compliance
+            </Motion.h3>
+            <Motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-8xl font-black text-ctf-crimson uppercase tracking-tighter leading-none mb-10"
+            >
+              Governance & <span className="text-ctf-purple italic">Compliance</span>
+            </Motion.h1>
+            <p className="text-xl text-gray-500 font-light leading-relaxed">
+              Christian Teenagers Foundation (CTF) operates with structured governance, regulatory compliance, and financial accountability to ensure the safety and empowerment of every member.
+            </p>
+          </div>
         </div>
       </section>
 
-      {sections.map((section, i) => (
-        <section key={section.id} id={section.id} className={`section-padding scroll-mt-20 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}>
-          <div className="container">
-            <div className="flex flex-col md:flex-row gap-12 items-start max-w-5xl mx-auto">
-              <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center text-accent shrink-0">
-                <section.icon size={32} />
+      <section className="py-24 bg-card-bg">
+        <div className="container">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="bg-white p-10 rounded-[40px] shadow-xl border border-gray-100 flex flex-col items-center text-center"
+            >
+              <div className="w-16 h-16 bg-ctf-crimson/10 text-ctf-crimson rounded-2xl flex items-center justify-center mb-8">
+                <Gavel size={32} />
               </div>
-              <div className="flex-1">
-                <h2 className="text-3xl mb-6">{section.title}</h2>
-                <p className="text-lg text-slate-600 leading-relaxed max-w-3xl">
-                  {section.content}
-                </p>
-                <div className="mt-10 p-8 border border-slate-100 rounded-2xl bg-white shadow-sm italic text-slate-500 text-sm">
-                  "Integrity is the bedrock of our foundation. We are committed to transparency in every naira spent and every life influenced."
+              <h3 className="text-2xl font-black text-ctf-purple uppercase mb-4">CAC Registered</h3>
+              <p className="text-sm text-gray-500 leading-relaxed font-light">
+                Christian Teenagers Foundation (CTF) is a legally registered Nigerian youth development organization with the Corporate Affairs Commission (CAC).
+              </p>
+            </Motion.div>
+
+            <Motion.div
+              initial={{ opacity: 1, scale: 1 }}
+              className="bg-ctf-crimson p-10 rounded-[40px] shadow-2xl shadow-ctf-crimson/30 flex flex-col items-center text-center transform scale-105 z-10"
+            >
+              <div className="w-16 h-16 bg-white/20 text-white rounded-2xl flex items-center justify-center mb-8">
+                <ShieldCheck size={32} />
+              </div>
+              <h3 className="text-2xl font-black text-white uppercase mb-4">SCUML Certified</h3>
+              <p className="text-sm text-white/80 leading-relaxed font-bold tracking-tight">
+                Holds SCUML certification in line with national financial compliance standards, ensuring transparency in all our financial operations.
+              </p>
+            </Motion.div>
+
+            <Motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="bg-white p-10 rounded-[40px] shadow-xl border border-gray-100 flex flex-col items-center text-center"
+            >
+              <div className="w-16 h-16 bg-ctf-purple/10 text-ctf-purple rounded-2xl flex items-center justify-center mb-8">
+                <FileText size={32} />
+              </div>
+              <h3 className="text-2xl font-black text-ctf-purple uppercase mb-4">Regulatory Compliance</h3>
+              <p className="text-sm text-gray-500 leading-relaxed font-light">
+                We adhere to strict reporting standards and operational guidelines set by Nigerian regulatory bodies for non-profit organizations.
+              </p>
+            </Motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-4xl md:text-6xl font-black text-ctf-crimson uppercase tracking-tighter leading-none mb-8">
+                Structured <span className="text-ctf-purple block mt-2">Accountability</span>
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed font-light">
+                Our governance structure is designed to provide oversight and strategic direction for all CTF programs. The leadership team ensures that resources are allocated efficiently to maximize impact.
+              </p>
+              <ul className="space-y-6">
+                {[
+                  'Board of trustees oversight',
+                  'Bi-annual financial auditing',
+                  'Program impact assessment',
+                  'Standardized mentorship procedures',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-4 group">
+                    <div className="w-8 h-8 rounded-full bg-ctf-pink/10 text-ctf-pink flex items-center justify-center group-hover:bg-ctf-crimson group-hover:text-white transition-all">
+                      <Scale size={16} />
+                    </div>
+                    <span className="text-sm font-bold uppercase tracking-widest text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-ctf-crimson to-ctf-purple p-1 rounded-[40px] shadow-3xl">
+                <div className="bg-white p-12 rounded-[38px] flex flex-col gap-8">
+                  <div className="text-center border-b border-gray-100 pb-8">
+                    <h4 className="text-lg font-black text-ctf-purple uppercase tracking-widest">Compliance Status</h4>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em]">Last Updated: April 2026</span>
+                  </div>
+                  <div className="flex flex-col gap-6">
+                    {complianceRows.map((row) => (
+                      <div key={row.label} className="flex justify-between items-center bg-gray-50 px-6 py-4 rounded-2xl">
+                        <span className="text-sm font-bold uppercase text-gray-600">{row.label}</span>
+                        <span className={`text-[10px] font-black uppercase text-white px-3 py-1 rounded-full ${toneClasses[row.color]}`}>{row.status}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <button className="w-full py-5 bg-ctf-purple text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl shadow-ctf-purple/20 hover:bg-ctf-crimson transition-all">
+                    Download Annual Report
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
     </div>
   );
 };

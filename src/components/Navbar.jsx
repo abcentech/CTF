@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X, Shield } from 'lucide-react';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { navItems } from '../data/navData';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,13 +24,13 @@ const Navbar = () => {
     }`}>
       <div className="container flex justify-between items-center">
         {/* Logo */}
-        <NavLink smooth to="/#" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
-            <Shield size={24} strokeWidth={2.5} />
+        <NavLink smooth to="/#" className="flex items-center gap-3 group">
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-110">
+            <img src={logo} alt="CTF Logo" className="w-full h-full object-contain" />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-tight text-primary leading-tight">CTF</span>
-            <span className="text-[10px] font-semibold text-accent tracking-widest leading-none">FOUNDATION</span>
+            <span className="text-2xl font-black tracking-tighter text-ctf-crimson leading-[0.8] mb-0.5">CTF</span>
+            <span className="text-[10px] font-extrabold text-ctf-purple tracking-[0.25em] leading-none uppercase">Foundation</span>
           </div>
         </NavLink>
 
@@ -44,10 +45,10 @@ const Navbar = () => {
             >
               <NavLink 
                 smooth
-                to={item.dropdown ? `${item.path}#overview` : item.path}
+                to={item.path}
                 className={`text-sm font-bold tracking-wide transition-colors flex items-center gap-1 py-2 ${
-                  scrolled ? 'text-primary' : 'text-primary'
-                } hover:text-accent`}
+                  scrolled ? 'text-ctf-crimson' : 'text-ctf-crimson'
+                } hover:text-ctf-purple`}
               >
                 {item.label}
                 {item.dropdown && <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />}
@@ -56,7 +57,7 @@ const Navbar = () => {
               {/* Dropdown Menu */}
               <AnimatePresence>
                 {item.dropdown && activeDropdown === item.label && (
-                  <motion.ul
+                  <Motion.ul
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
@@ -66,20 +67,20 @@ const Navbar = () => {
                       <li key={subItem.label}>
                         <NavLink 
                           smooth
-                          to={`${item.path}${subItem.href}`}
+                          to={subItem.href}
                           className="block px-6 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors"
                         >
                           {subItem.label}
                         </NavLink>
                       </li>
                     ))}
-                  </motion.ul>
+                  </Motion.ul>
                 )}
               </AnimatePresence>
             </li>
           ))}
           <li>
-            <NavLink smooth to="/#contact" className="px-6 py-2.5 bg-primary text-white rounded-full text-sm font-bold hover:bg-primary-light transition-all shadow-lg hover:shadow-primary/20">
+            <NavLink smooth to="/get-involved" className="px-6 py-2.5 bg-ctf-crimson text-white rounded-full text-sm font-bold hover:bg-ctf-pink transition-all shadow-lg shadow-ctf-crimson/20">
               GET INVOLVED
             </NavLink>
           </li>
@@ -97,7 +98,7 @@ const Navbar = () => {
       {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <Motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -110,7 +111,7 @@ const Navbar = () => {
                   <div className="flex flex-col gap-4">
                     <NavLink 
                       smooth
-                      to={item.path} 
+                      to={item.path}
                       className="text-lg font-bold text-primary"
                       onClick={() => !item.dropdown && setIsOpen(false)}
                     >
@@ -122,7 +123,7 @@ const Navbar = () => {
                           <li key={subItem.label}>
                             <NavLink 
                               smooth
-                              to={`${item.path}${subItem.href}`}
+                              to={subItem.href}
                               className="text-slate-600 font-medium text-sm"
                               onClick={() => setIsOpen(false)}
                             >
@@ -138,7 +139,7 @@ const Navbar = () => {
               <li className="mt-4">
                 <NavLink 
                   smooth
-                  to="/#contact" 
+                  to="/get-involved#member"
                   className="block w-full text-center py-4 bg-accent text-white rounded-xl font-bold"
                   onClick={() => setIsOpen(false)}
                 >
@@ -146,7 +147,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </nav>

@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Installers and Archives
+*.msi
+*.zip
+
+# Documents
+*.pdf
+
+# Raw Assets
+Asset/
+CTFLogo/
+

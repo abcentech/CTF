@@ -1,97 +1,123 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { BarChart3, FileBadge, Users2, Landmark, Image } from 'lucide-react';
+import { motion as Motion } from 'framer-motion';
+import { Globe, Users, Trophy, Award, Heart, MapPin, TrendingUp, ShieldCheck, Quote } from 'lucide-react';
 
 const Impact = () => {
-  const sections = [
-    {
-      id: 'overview',
-      title: 'Our Impact Overview',
-      content: 'Since inception, CTF has touched the lives of over 50,000 teenagers across Africa. Our indices show a marked improvement in the academic performance and spiritual consistency of our members.',
-      icon: BarChart3
-    },
-    {
-      id: 'reports',
-      title: 'Annual Reports',
-      content: 'Transparent records of our journey. Our annual reports provide a comprehensive look at our growth, initiatives, and the stories of change from the previous year.',
-      icon: FileBadge
-    },
-    {
-      id: 'recipients',
-      title: 'Scholarship Recipients',
-      content: 'Meet the brilliant minds who have been empowered through our scholarship program. These students are currently excelling in various fields across top Nigerian universities.',
-      icon: Users2
-    },
-    {
-      id: 'expansion',
-      title: 'University Expansion',
-      content: 'We are rapidly growing! From starting in just two states, CTF now has a presence in almost every major university campus in Nigeria, with plans to expand globally.',
-      icon: Landmark
-    },
-    {
-      id: 'gallery',
-      title: 'Media & Gallery',
-      content: 'A visual journey of our conferences, campus outreaches, and award ceremonies. Witness the energy and passion of a generation on fire for God.',
-      icon: Image
-    }
+  const stats = [
+    { label: 'Teenagers Reached', value: '600,000+', icon: Users, color: '#BB1654' },
+    { label: 'Gatherings Conducted', value: '200+', icon: Globe, color: '#672A85' },
+    { label: 'Scholarships Awarded', value: '41+', icon: Award, color: '#E60975' },
+    { label: 'Strategic Partners', value: '150+', icon: Heart, color: '#BB1654' },
+    { label: 'States Reached', value: '9', icon: MapPin, color: '#672A85' },
+    { label: 'Schools & Campuses', value: '100+', icon: TrendingUp, color: '#E60975' },
+    { label: 'Mobilized for Programs', value: '₦19.5M+', icon: ShieldCheck, color: '#BB1654' },
   ];
 
+  const countries = ['United States', 'United Kingdom', 'Canada', 'Ukraine', 'Germany'];
+
   return (
-    <div className="pt-20">
-      <section className="bg-primary py-24 text-white">
-        <div className="container text-center">
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
+    <div className="pt-24 flex flex-col bg-bg overflow-hidden">
+      {/* Header */}
+      <section className="py-24 bg-white relative">
+        <div className="container relative z-10 text-center">
+          <Motion.h3 
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-5xl md:text-6xl mb-6"
+            className="text-ctf-pink font-black uppercase tracking-[0.4em] mb-6 text-xs md:text-sm"
           >
-            The <span className="text-accent">Impact</span> We Make
-          </motion.h1>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            Measuring our success by the lives transformed and the leaders built.
+            Our Impact
+          </Motion.h3>
+          <Motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-9xl font-black text-ctf-crimson uppercase tracking-tighter leading-[0.85] mb-12"
+          >
+            Measurable <br /> <span className="text-ctf-purple italic">Transformation</span>
+          </Motion.h1>
+          <p className="text-2xl text-gray-500 font-light leading-relaxed max-w-3xl mx-auto italic">
+            "From just seven people in 2018 to a movement impacting hundreds of thousands across Nigeria and beyond."
           </p>
         </div>
       </section>
 
-      {sections.map((section, i) => (
-        <section key={section.id} id={section.id} className={`section-padding scroll-mt-20 ${i % 2 === 0 ? 'bg-slate-50' : 'bg-white'}`}>
-          <div className="container">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="text-accent"><section.icon size={28} /></div>
-                <h2 className="text-3xl">{section.title}</h2>
-              </div>
-              <p className="text-lg text-slate-600 leading-relaxed mb-12">
-                {section.content}
-              </p>
-              
-              {/* Conditional Rendering for specific sections */}
-              {section.id === 'gallery' ? (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {[1,2,3,4].map(i => (
-                    <div key={i} className="aspect-square bg-slate-200 rounded-2xl overflow-hidden hover:opacity-80 transition-opacity flex items-center justify-center text-slate-400 font-bold uppercase text-xs">
-                       Media {i}
-                    </div>
-                  ))}
+      {/* Grid Stats */}
+      <section className="py-24 bg-card-bg">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, i) => (
+              <Motion.div 
+                key={stat.label}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="bg-white p-12 rounded-[50px] shadow-2xl shadow-gray-200 border border-gray-100 flex flex-col items-center text-center group hover:scale-[1.02] transition-transform"
+              >
+                <div 
+                  className="w-20 h-20 rounded-3xl bg-gray-50 flex items-center justify-center mb-10 group-hover:rotate-[15deg] transition-all duration-500"
+                  style={{ color: stat.color }}
+                >
+                  <stat.icon size={40} strokeWidth={1.5} />
                 </div>
-              ) : (
-                <div className="bg-white p-10 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col md:flex-row items-center gap-10">
-                   <div className="w-full md:w-1/3 aspect-video bg-accent/10 rounded-2xl flex items-center justify-center text-accent/50">
-                      <section.icon size={48} />
-                   </div>
-                   <div className="flex-1">
-                      <h4 className="text-xl font-bold text-primary mb-4">Empowerment highlight for {section.id}</h4>
-                      <p className="text-slate-500 mb-6 italic">"Through CTF, I found a community that challenged me to be my best both in my studies and in my walk with God."</p>
-                      <button className="text-primary font-bold flex items-center gap-2 hover:text-accent transition-colors">
-                        Read full story →
-                      </button>
-                   </div>
-                </div>
-              )}
-            </div>
+                <h3 className="text-4xl md:text-5xl font-black text-ctf-purple mb-4 tracking-tighter">{stat.value}</h3>
+                <p className="text-gray-400 font-bold uppercase text-[10px] tracking-[0.2em]">{stat.label}</p>
+              </Motion.div>
+            ))}
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
+
+      {/* Global Footprint */}
+      <section className="py-24 bg-ctf-crimson relative">
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+             <div>
+                <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none mb-10">
+                   Global <br /><span className="text-ctf-pink italic">Footprint</span>
+                </h2>
+                <p className="text-xl text-white/70 leading-relaxed font-light mb-12">
+                   Notably, CTF’s influence has extended globally, with alumni currently studying in several countries across the world, proving that our development framework builds internationally competitive leaders.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                   {countries.map(country => (
+                     <span key={country} className="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white font-bold text-sm uppercase tracking-widest border border-white/20">
+                        {country}
+                     </span>
+                   ))}
+                </div>
+             </div>
+             <div className="relative">
+                <div className="w-full aspect-square bg-white/5 rounded-[60px] border-4 border-white/10 flex items-center justify-center text-white/20 p-12">
+                   <Globe size={400} strokeWidth={0.5} className="animate-pulse" />
+                </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-ctf-pink rounded-full blur-[80px] opacity-40" />
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Narrative Impact */}
+      <section className="py-24 bg-white">
+        <div className="container">
+           <div className="max-w-4xl mx-auto space-y-16">
+              <div className="bg-gray-50 p-12 rounded-[40px] border-l-8 border-ctf-purple relative">
+                 <Quote className="absolute -top-6 -left-6 text-ctf-pink opacity-20" size={80} />
+                 <p className="text-2xl text-ctf-purple font-black uppercase tracking-tight leading-tight mb-8 italic">
+                    "From school outreaches to global campuses, the transformation is evident in every member."
+                 </p>
+                 <p className="text-gray-600 leading-relaxed">
+                    By 2025, CTF entered a new phase of structured impact—launching its Scholarship Program and publishing the Life on Campus (LOC) book. Today, CTF stands as a growing youth development organization shaping the future of teenagers across Nigeria and beyond.
+                 </p>
+              </div>
+              
+              <div className="text-center">
+                <button className="px-12 py-6 bg-ctf-crimson text-white rounded-full font-black uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-ctf-crimson/20">
+                   View Annual Reports
+                </button>
+              </div>
+           </div>
+        </div>
+      </section>
     </div>
   );
 };

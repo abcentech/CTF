@@ -8,44 +8,47 @@ export const navItems = [
     label: 'ABOUT',
     path: '/about',
     dropdown: [
-      { label: 'About CTF', href: '#overview' },
-      { label: 'Founder & Leadership', href: '#leadership' },
-      { label: 'Our Mission & Values', href: '#mission' },
-      { label: 'Where We Operate', href: '#locations' },
-      { label: 'FAQ', href: '#faq' }
+      { label: 'Our Story', href: '/about#story' },
+      { label: 'Mission & Vision', href: '/about#vision' },
+      { label: 'Core Pillars', href: '/about#pillars' },
+      { label: 'Leadership', href: '/about#leadership' }
     ]
   },
   {
     label: 'PROGRAMS',
     path: '/programs',
     dropdown: [
-      { label: 'Life on Campus (LOC)', href: '#loc' },
-      { label: 'Course of Study Finder (COS)', href: '#cos' },
-      { label: 'CTF Scholarship Program', href: '#scholarship' },
-      { label: 'Teacher of the Year (TOY)', href: '#toy' },
-      { label: 'Rebuilders Academy', href: '#rebuilders' },
-      { label: 'Monthly Conferences', href: '#conferences' }
-    ]
-  },
-  {
-    label: 'GOVERNANCE',
-    path: '/governance',
-    dropdown: [
-      { label: 'Governance & Compliance', href: '#compliance' },
-      { label: 'Organizational Structure', href: '#structure' },
-      { label: 'Financial Transparency', href: '#financial' },
-      { label: 'Safeguarding Commitment', href: '#safeguarding' }
+      { label: 'Life on Campus (LOC)', href: '/programs#loc' },
+      { label: 'Course of Study Finder (COS)', href: '/programs#cos' },
+      { label: 'Digital Detergent', href: '/programs#detergent' },
+      { label: 'Scholarship Program', href: '/programs#scholarship' },
+      { label: 'Teacher of the Year', href: '/programs#toy' },
+      { label: 'Rebuilders Academy', href: '/programs#rebuilders' }
     ]
   },
   {
     label: 'IMPACT',
     path: '/impact',
+    dropdown: null
+  },
+  {
+    label: 'GET INVOLVED',
+    path: '/get-involved',
     dropdown: [
-      { label: 'Our Impact Overview', href: '#overview' },
-      { label: 'Annual Reports', href: '#reports' },
-      { label: 'Scholarship Recipients', href: '#recipients' },
-      { label: 'University Expansion', href: '#expansion' },
-      { label: 'Media & Gallery', href: '#gallery' }
+      { label: 'Become a Member', href: '/get-involved#member' },
+      { label: 'Request a Mentor', href: '/get-involved#mentor' },
+      { label: 'Become a Partner', href: '/get-involved#partner' },
+      { label: 'Support / Donate', href: '/get-involved#donate' }
     ]
+  },
+  {
+    label: 'GOVERNANCE',
+    path: '/governance',
+    dropdown: null
+  },
+  {
+    label: 'FAQ',
+    path: '/faq',
+    dropdown: null
   }
 ];
