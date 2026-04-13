@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { UserPlus, Handshake, Heart, MessageSquare, ArrowRight, ExternalLink, ShieldCheck, Mail, MapPin, Phone } from 'lucide-react';
+import { UserPlus, Handshake, Heart, MessageSquare, ArrowRight, ExternalLink, ShieldCheck, Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const GetInvolved = () => {
+  const [form, setForm] = useState({
+    fullName: '',
+    email: '',
+    age: '',
+    interest: 'Become a CTF Member',
+    schoolOrOrg: '',
+    message: '',
+  });
+
   const pathways = [
     {
       id: 'member',
@@ -58,6 +67,20 @@ const GetInvolved = () => {
       title: 'text-ctf-pink',
       button: 'bg-ctf-pink hover:bg-ctf-purple',
     },
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const subject = encodeURIComponent(`CTF Inquiry: ${form.interest}`);
+    const body = encodeURIComponent(
+      `Full Name: ${form.fullName}\nEmail: ${form.email}\nAge: ${form.age}\nSchool / Organization: ${form.schoolOrOrg}\nInterest: ${form.interest}\n\nMessage:\n${form.message}`,
+    );
+    window.location.href = `mailto:CTFinquiries@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -142,6 +165,112 @@ const GetInvolved = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-card-bg border-t border-gray-100">
+        <div className="container">
+          <div className="grid lg:grid-cols-5 gap-12 items-start">
+            <div className="lg:col-span-2">
+              <h3 className="text-sm font-bold text-ctf-purple tracking-[0.2em] uppercase mb-4">Action Path</h3>
+              <h2 className="text-4xl md:text-6xl font-black text-ctf-crimson uppercase tracking-tighter leading-none mb-8">
+                Send a Real <span className="text-ctf-purple italic">Inquiry</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                This form does not disappear into a black hole. It opens an email draft with the details already filled in, so the team can respond quickly even without a backend.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-gray-700">
+                  <Send className="text-ctf-crimson" size={18} />
+                  <span className="text-sm font-bold uppercase tracking-widest">Membership, mentoring, partnership, and donations</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-700">
+                  <ShieldCheck className="text-ctf-purple" size={18} />
+                  <span className="text-sm font-bold uppercase tracking-widest">Safe, transparent, and easy to verify</span>
+                </div>
+              </div>
+            </div>
+            <form onSubmit={handleSubmit} className="lg:col-span-3 bg-white p-8 md:p-10 rounded-[40px] shadow-2xl border border-gray-100 grid md:grid-cols-2 gap-6">
+              <label className="flex flex-col gap-2">
+                <span className="text-xs font-black uppercase tracking-widest text-gray-500">Full Name</span>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={form.fullName}
+                  onChange={handleChange}
+                  required
+                  className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-ctf-crimson/20"
+                  placeholder="Your name"
+                />
+              </label>
+              <label className="flex flex-col gap-2">
+                <span className="text-xs font-black uppercase tracking-widest text-gray-500">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-ctf-crimson/20"
+                  placeholder="name@example.com"
+                />
+              </label>
+              <label className="flex flex-col gap-2">
+                <span className="text-xs font-black uppercase tracking-widest text-gray-500">Age</span>
+                <input
+                  type="text"
+                  name="age"
+                  value={form.age}
+                  onChange={handleChange}
+                  className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-ctf-crimson/20"
+                  placeholder="13-19 or parent/guardian"
+                />
+              </label>
+              <label className="flex flex-col gap-2">
+                <span className="text-xs font-black uppercase tracking-widest text-gray-500">Interest</span>
+                <select
+                  name="interest"
+                  value={form.interest}
+                  onChange={handleChange}
+                  className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-ctf-crimson/20 bg-white"
+                >
+                  <option>Become a CTF Member</option>
+                  <option>Request a Mentor</option>
+                  <option>Become a Partner</option>
+                  <option>Support / Donate</option>
+                </select>
+              </label>
+              <label className="flex flex-col gap-2 md:col-span-2">
+                <span className="text-xs font-black uppercase tracking-widest text-gray-500">School / Organization</span>
+                <input
+                  type="text"
+                  name="schoolOrOrg"
+                  value={form.schoolOrOrg}
+                  onChange={handleChange}
+                  className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-ctf-crimson/20"
+                  placeholder="School, church, or organization"
+                />
+              </label>
+              <label className="flex flex-col gap-2 md:col-span-2">
+                <span className="text-xs font-black uppercase tracking-widest text-gray-500">Message</span>
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  rows="5"
+                  className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-ctf-crimson/20 resize-y"
+                  placeholder="Tell us what you need..."
+                />
+              </label>
+              <div className="md:col-span-2 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+                <p className="text-sm text-gray-500">Submitting opens your email client with a prefilled message to the team.</p>
+                <button type="submit" className="px-8 py-4 bg-ctf-crimson text-white rounded-full font-black uppercase tracking-widest text-sm shadow-lg hover:bg-ctf-pink transition-colors">
+                  Send Inquiry
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
