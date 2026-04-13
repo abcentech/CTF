@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import { Gavel, ShieldCheck, FileText, Scale } from 'lucide-react';
+import { Gavel, ShieldCheck, FileText, Scale, Download } from 'lucide-react';
 
 const Governance = () => {
   const complianceRows = [
@@ -15,6 +15,24 @@ const Governance = () => {
     'ctf-purple': 'bg-ctf-purple',
     'ctf-pink': 'bg-ctf-pink',
   };
+
+  const reportArchive = [
+    {
+      title: 'Annual Summary 2025',
+      description: 'A concise overview of membership growth, outreach milestones, and scholarship support.',
+      href: '/reports/annual-summary-2025.txt',
+    },
+    {
+      title: 'Compliance Overview 2026',
+      description: 'Current registration status, verification notes, and governance snapshot.',
+      href: '/reports/compliance-overview-2026.txt',
+    },
+    {
+      title: 'Impact Brief 2025',
+      description: 'A one-page summary of reach, partner schools, and strategic milestones.',
+      href: '/reports/impact-brief-2025.txt',
+    },
+  ];
 
   return (
     <div className="pt-24 flex flex-col bg-bg">
@@ -88,6 +106,34 @@ const Governance = () => {
                 We adhere to strict reporting standards and operational guidelines set by Nigerian regulatory bodies for non-profit organizations.
               </p>
             </Motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-bg border-t border-gray-100">
+        <div className="container">
+          <div className="grid lg:grid-cols-3 gap-8 items-start">
+            <div className="lg:col-span-1">
+              <h3 className="text-sm font-bold text-ctf-purple tracking-[0.2em] uppercase mb-4">Report Archive</h3>
+              <h2 className="text-4xl md:text-6xl font-black text-ctf-crimson uppercase tracking-tighter leading-none mb-6">
+                Download <span className="text-ctf-purple italic">Summaries</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                These lightweight reports give visitors something concrete to review today. They can later be replaced with polished PDF annual reports when those are ready.
+              </p>
+            </div>
+            <div className="lg:col-span-2 grid md:grid-cols-3 gap-4">
+              {reportArchive.map((report) => (
+                <a key={report.title} href={report.href} download className="bg-white p-6 rounded-[28px] shadow-xl border border-gray-100 hover:border-ctf-crimson/30 transition-all group">
+                  <div className="w-12 h-12 rounded-2xl bg-ctf-crimson/10 text-ctf-crimson flex items-center justify-center mb-4 group-hover:bg-ctf-crimson group-hover:text-white transition-all">
+                    <Download size={20} />
+                  </div>
+                  <h4 className="text-lg font-black text-ctf-purple uppercase mb-3">{report.title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-5">{report.description}</p>
+                  <span className="text-xs font-black uppercase tracking-widest text-ctf-crimson">Download file</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
