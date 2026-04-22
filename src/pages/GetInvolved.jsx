@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { UserPlus, Handshake, Heart, MessageSquare, ArrowRight, ExternalLink, ShieldCheck, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { UserPlus, Handshake, Heart, MessageSquare, ArrowRight, ShieldCheck, Send, Mail, MapPin, Phone } from 'lucide-react';
+import memberImg from '../assets/ctf/campus-group.jpg';
+import mentorImg from '../assets/ctf/campus-talk.jpg';
+import partnerImg from '../assets/ctf/outreach-abuja.jpg';
+import donateImg from '../assets/ctf/scholarship-4.jpg';
 
 const GetInvolved = () => {
   const [form, setForm] = useState({
@@ -16,38 +20,38 @@ const GetInvolved = () => {
     {
       id: 'member',
       title: 'Become a CTF Member',
+      href: 'https://bit.ly/CTFbiodata2026',
       icon: UserPlus,
       color: 'ctf-crimson',
-      desc: 'Join a community focused on academic excellence, leadership growth, and spiritual development. Membership includes a 4-week structured onboarding class.',
-      details: 'Open to teenagers aged 13-19 who align with our values.',
-      cta: 'Apply for Membership',
+      desc: 'CTF membership provides access to structured mentorship systems, development programs, and a community focused on academic excellence, leadership growth, and spiritual development.',
+      details: 'Membership includes a 4-week structured onboarding class.',
     },
     {
       id: 'mentor',
-      title: 'Request a Mentor',
+      title: 'Request for a CTF Mentor',
+      href: 'https://bit.ly/CTFMentoringPlatform',
       icon: MessageSquare,
       color: 'ctf-purple',
-      desc: 'Receive guidance in academics, personal development, and spiritual growth. Requests are reviewed and matched through our coordination system.',
-      details: 'Ensuring proper guidance and accountability for every teenager.',
-      cta: 'Request a Mentor',
+      desc: 'CTF offers structured mentorship for teenagers who desire guidance in academics, personal development, leadership, and spiritual growth.',
+      details: 'Mentorship requests are reviewed and matched through CTF coordination systems.',
     },
     {
       id: 'partner',
-      title: 'Become a Partner',
+      title: 'Become a CTF Partner',
+      href: 'https://bit.ly/CTFPayPalGift',
       icon: Handshake,
       color: 'ctf-pink',
-      desc: 'Partner with CTF to expand its reach and impact. Opportunities include sponsoring scholarships, collaborating on outreaches, and institutional support.',
-      details: 'For individuals, schools, and organisations interested in transformation.',
-      cta: 'Become a Partner',
+      desc: 'CTF partners with individuals, schools, and organisations to expand its reach and impact through scholarships, outreaches, and institutional support.',
+      details: 'For schools, individuals, and organisations interested in transformation.',
     },
     {
       id: 'donate',
       title: 'Support / Donate',
+      href: 'https://bit.ly/CTFPayPalGift',
       icon: Heart,
       color: 'ctf-crimson',
-      desc: 'CTF operates through structured financial systems. All contributions are directed toward program execution and student support.',
-      details: 'Verified channels: Union Bank Nigeria | PayPal (International)',
-      cta: 'Support CTF',
+      desc: 'CTF operates through structured financial systems that support its programs, scholarships, and outreach activities.',
+      details: 'Verified channels are used to process support and donations.',
     },
   ];
 
@@ -68,6 +72,13 @@ const GetInvolved = () => {
       button: 'bg-ctf-pink hover:bg-ctf-purple',
     },
   };
+
+  const engagementCards = [
+    { image: memberImg, title: 'Membership', text: 'Structured onboarding and community formation.' },
+    { image: mentorImg, title: 'Mentorship', text: 'Academic guidance and personal development support.' },
+    { image: partnerImg, title: 'Partnership', text: 'School outreach and institutional collaboration.' },
+    { image: donateImg, title: 'Support', text: 'Scholarship support and program backing.' },
+  ];
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -94,7 +105,7 @@ const GetInvolved = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="text-ctf-pink font-black uppercase tracking-[0.4em] mb-6 text-sm"
               >
-                Join the Movement
+                Get Involved
               </Motion.h3>
               <Motion.h1
                 initial={{ opacity: 0, y: 30 }}
@@ -106,7 +117,7 @@ const GetInvolved = () => {
             </div>
             <div className="pb-4">
               <p className="text-2xl text-gray-500 font-light leading-relaxed italic border-l-4 border-ctf-purple pl-8">
-                "Christian Teenagers Foundation provides multiple pathways for students, parents, and partners to engage with its programs and initiatives."
+                Christian Teenagers Foundation provides multiple pathways for students, parents, and partners to engage with its programs and initiatives.
               </p>
             </div>
           </div>
@@ -137,34 +148,51 @@ const GetInvolved = () => {
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest leading-relaxed">{path.details}</p>
                   </div>
                 </div>
-                <button className={`w-full py-5 text-white rounded-2xl font-black uppercase tracking-widest flex items-center justify-center gap-3 shadow-xl transition-all ${toneClasses[path.color].button}`}>
-                  {path.cta} <ArrowRight size={20} />
-                </button>
+                <a
+                  href={path.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`w-full py-5 text-white rounded-2xl font-black uppercase tracking-widest flex items-center justify-center gap-3 shadow-xl transition-all ${toneClasses[path.color].button}`}
+                >
+                  {path.title} <ArrowRight size={20} />
+                </a>
               </Motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white border-y border-gray-100">
         <div className="container">
-          <div className="max-w-5xl mx-auto bg-ctf-crimson p-16 rounded-[60px] text-white flex flex-col lg:flex-row gap-16 items-center shadow-3xl shadow-ctf-crimson/20">
-            <div className="lg:w-1/2">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-8 italic">Trust & <br /><span className="text-ctf-pink">Verification</span></h2>
-              <p className="text-white/70 leading-relaxed font-light mb-8 italic">
-                Parents and guardians can verify CTF through its Governance & Compliance page or by contacting the organization directly. We maintain structured oversight to ensure a safe environment.
-              </p>
-              <a href="/governance" className="flex items-center gap-4 text-white font-black uppercase text-sm group">
-                Visit Compliance Page <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
+          <div className="grid lg:grid-cols-2 gap-12 items-end mb-12">
+            <div>
+              <h3 className="text-sm font-bold text-ctf-pink tracking-[0.2em] uppercase mb-4">Photo Guide</h3>
+              <h2 className="text-4xl md:text-6xl font-black text-ctf-crimson uppercase tracking-tighter italic leading-none">
+                Pathways in <span className="text-ctf-purple">Focus</span>
+              </h2>
             </div>
-            <div className="lg:w-1/2 grid grid-cols-2 gap-4">
-              {['Safe Environment', 'Transparent Finance', 'Structured Mentorship', 'Legal Registration'].map((item) => (
-                <div key={item} className="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em]">{item}</p>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              These images highlight the main ways people connect with CTF.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-6">
+            {engagementCards.map((item, index) => (
+              <Motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.12 }}
+                className={`${index === 0 ? 'lg:col-span-5' : index === 1 ? 'lg:col-span-4' : 'lg:col-span-3'} rounded-[32px] overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100 relative`}
+              >
+                <img src={item.image} alt={item.title} className="w-full h-full min-h-[320px] object-cover" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6">
+                  <p className="text-white font-black uppercase tracking-[0.2em] text-sm">{item.title}</p>
+                  <p className="text-white/80 text-xs font-bold uppercase tracking-[0.2em] mt-2">{item.text}</p>
                 </div>
-              ))}
-            </div>
+              </Motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -178,7 +206,7 @@ const GetInvolved = () => {
                 Send a Real <span className="text-ctf-purple italic">Inquiry</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                This form does not disappear into a black hole. It opens an email draft with the details already filled in, so the team can respond quickly even without a backend.
+                This form opens an email draft with the details already filled in, so the team can respond quickly.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-gray-700">
@@ -187,7 +215,7 @@ const GetInvolved = () => {
                 </div>
                 <div className="flex items-center gap-3 text-gray-700">
                   <ShieldCheck className="text-ctf-purple" size={18} />
-                  <span className="text-sm font-bold uppercase tracking-widest">Safe, transparent, and easy to verify</span>
+                  <span className="text-sm font-bold uppercase tracking-widest">Official links only</span>
                 </div>
               </div>
             </div>
@@ -236,8 +264,8 @@ const GetInvolved = () => {
                   className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-ctf-crimson/20 bg-white"
                 >
                   <option>Become a CTF Member</option>
-                  <option>Request a Mentor</option>
-                  <option>Become a Partner</option>
+                  <option>Request for a CTF Mentor</option>
+                  <option>Become a CTF Partner</option>
                   <option>Support / Donate</option>
                 </select>
               </label>
@@ -271,39 +299,6 @@ const GetInvolved = () => {
                 </button>
               </div>
             </form>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="py-24 bg-bg border-t border-gray-100">
-        <div className="container">
-          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-            <div className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-xl">
-              <h3 className="text-2xl font-black text-ctf-crimson uppercase mb-6">Contact</h3>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <Mail className="text-ctf-purple shrink-0 mt-1" size={20} />
-                  <a href="mailto:CTFinquiries@gmail.com" className="text-gray-700 font-medium">CTFinquiries@gmail.com</a>
-                </div>
-                <div className="flex items-start gap-4">
-                  <MapPin className="text-ctf-purple shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700 font-medium">Egbeda, Lagos, Nigeria</span>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Phone className="text-ctf-purple shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700 font-medium">Response via official email and partner school channels</span>
-                </div>
-              </div>
-            </div>
-            <div className="lg:col-span-2 bg-ctf-purple p-10 rounded-[40px] text-white shadow-xl">
-              <h3 className="text-2xl md:text-4xl font-black uppercase mb-4">What was missing</h3>
-              <p className="text-white/75 leading-relaxed mb-8">This site now has a real contact section, clearer entry points for members and partners, and direct paths to the compliance page. The next step is replacing these placeholders with live forms and working donation links.</p>
-              <div className="flex flex-wrap gap-4">
-                <a href="mailto:CTFinquiries@gmail.com" className="px-6 py-3 bg-white text-ctf-purple rounded-full font-black uppercase tracking-widest text-xs">Email Us</a>
-                <a href="/faq" className="px-6 py-3 bg-white/10 border border-white/20 rounded-full font-black uppercase tracking-widest text-xs">Read FAQ</a>
-                <a href="/governance" className="px-6 py-3 bg-white/10 border border-white/20 rounded-full font-black uppercase tracking-widest text-xs">See Compliance</a>
-              </div>
-            </div>
           </div>
         </div>
       </section>

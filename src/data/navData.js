@@ -9,8 +9,7 @@ export const navItems = [
     path: '/about',
     dropdown: [
       { label: 'Our Story', href: '/about#story' },
-      { label: 'Mission & Vision', href: '/about#vision' },
-      { label: 'Core Pillars', href: '/about#pillars' },
+      { label: 'Report Highlights', href: '/about#highlights' },
       { label: 'Leadership', href: '/about#leadership' }
     ]
   },

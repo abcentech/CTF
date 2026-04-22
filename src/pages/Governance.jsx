@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import { Gavel, ShieldCheck, FileText, Scale, Download } from 'lucide-react';
+import { Gavel, ShieldCheck, FileText, Download } from 'lucide-react';
+import founderImg from '../assets/ctf/founder-feature.jpg';
 
 const Governance = () => {
   const complianceRows = [
     { label: 'CAC Registration', status: 'Active', color: 'ctf-crimson' },
     { label: 'SCUML Certification', status: 'Active', color: 'ctf-purple' },
     { label: 'EFCC Compliance', status: 'Verified', color: 'ctf-pink' },
-    { label: 'Annual Reports', status: 'Submitted', color: 'ctf-crimson' },
+    { label: 'Annual Documentation', status: 'Submitted', color: 'ctf-crimson' },
   ];
 
   const toneClasses = {
@@ -19,17 +20,17 @@ const Governance = () => {
   const reportArchive = [
     {
       title: 'Annual Summary 2025',
-      description: 'A concise overview of membership growth, outreach milestones, and scholarship support.',
+      description: 'Membership onboarding, school engagement, scholarship support, and LOC/COS.',
       href: '/reports/annual-summary-2025.txt',
     },
     {
       title: 'Compliance Overview 2026',
-      description: 'Current registration status, verification notes, and governance snapshot.',
+      description: 'CAC, SCUML, EFCC, and reporting status.',
       href: '/reports/compliance-overview-2026.txt',
     },
     {
       title: 'Impact Brief 2025',
-      description: 'A one-page summary of reach, partner schools, and strategic milestones.',
+      description: 'Reach, gatherings, scholarships, partner schools, and global footprint.',
       href: '/reports/impact-brief-2025.txt',
     },
   ];
@@ -38,25 +39,37 @@ const Governance = () => {
     <div className="pt-24 flex flex-col bg-bg">
       <section className="py-20 bg-white">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <Motion.h3
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-ctf-pink font-black uppercase tracking-[0.3em] mb-4 text-sm"
-            >
-              Integrity & Compliance
-            </Motion.h3>
-            <Motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl md:text-8xl font-black text-ctf-crimson uppercase tracking-tighter leading-none mb-10"
-            >
-              Governance & <span className="text-ctf-purple italic">Compliance</span>
-            </Motion.h1>
-            <p className="text-xl text-gray-500 font-light leading-relaxed">
-              Christian Teenagers Foundation (CTF) operates with structured governance, regulatory compliance, and financial accountability to ensure the safety and empowerment of every member.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Motion.h3
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-ctf-pink font-black uppercase tracking-[0.3em] mb-4 text-sm"
+              >
+                Integrity & Compliance
+              </Motion.h3>
+              <Motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-5xl md:text-8xl font-black text-ctf-crimson uppercase tracking-tighter leading-none mb-10"
+              >
+                Governance & <span className="text-ctf-purple italic">Compliance</span>
+              </Motion.h1>
+              <p className="text-xl text-gray-500 font-light leading-relaxed">
+                Christian Teenagers Foundation (CTF) operates with structured governance, regulatory compliance, and financial accountability.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-ctf-crimson/20 to-ctf-purple/20 blur-3xl rounded-[40px]" />
+              <div className="relative overflow-hidden rounded-[40px] shadow-2xl border border-white/60">
+                <img src={founderImg} alt="CTF founder speaking at a leadership event" className="w-full h-[420px] object-cover" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 text-white">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-ctf-pink mb-2">Leadership Reference</p>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">Founder & Leadership</h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -75,7 +88,7 @@ const Governance = () => {
               </div>
               <h3 className="text-2xl font-black text-ctf-purple uppercase mb-4">CAC Registered</h3>
               <p className="text-sm text-gray-500 leading-relaxed font-light">
-                Christian Teenagers Foundation (CTF) is a legally registered Nigerian youth development organization with the Corporate Affairs Commission (CAC).
+                Christian Teenagers Foundation (CTF) is registered with the Corporate Affairs Commission (CAC) in Nigeria.
               </p>
             </Motion.div>
 
@@ -88,7 +101,7 @@ const Governance = () => {
               </div>
               <h3 className="text-2xl font-black text-white uppercase mb-4">SCUML Certified</h3>
               <p className="text-sm text-white/80 leading-relaxed font-bold tracking-tight">
-                Holds SCUML certification in line with national financial compliance standards, ensuring transparency in all our financial operations.
+                Holds SCUML certification in line with national financial compliance standards.
               </p>
             </Motion.div>
 
@@ -101,9 +114,9 @@ const Governance = () => {
               <div className="w-16 h-16 bg-ctf-purple/10 text-ctf-purple rounded-2xl flex items-center justify-center mb-8">
                 <FileText size={32} />
               </div>
-              <h3 className="text-2xl font-black text-ctf-purple uppercase mb-4">Regulatory Compliance</h3>
+              <h3 className="text-2xl font-black text-ctf-purple uppercase mb-4">Documentation Available</h3>
               <p className="text-sm text-gray-500 leading-relaxed font-light">
-                We adhere to strict reporting standards and operational guidelines set by Nigerian regulatory bodies for non-profit organizations.
+                Annual summary, impact overview, and compliance information are available here.
               </p>
             </Motion.div>
           </div>
@@ -114,12 +127,12 @@ const Governance = () => {
         <div className="container">
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-1">
-              <h3 className="text-sm font-bold text-ctf-purple tracking-[0.2em] uppercase mb-4">Report Archive</h3>
+              <h3 className="text-sm font-bold text-ctf-purple tracking-[0.2em] uppercase mb-4">Resource Center</h3>
               <h2 className="text-4xl md:text-6xl font-black text-ctf-crimson uppercase tracking-tighter leading-none mb-6">
-                Download <span className="text-ctf-purple italic">Summaries</span>
+                Download <span className="text-ctf-purple italic">Resources</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                These lightweight reports give visitors something concrete to review today. They can later be replaced with polished PDF annual reports when those are ready.
+                These documents summarize CTF&apos;s impact and compliance information.
               </p>
             </div>
             <div className="lg:col-span-2 grid md:grid-cols-3 gap-4">
@@ -146,18 +159,18 @@ const Governance = () => {
                 Structured <span className="text-ctf-purple block mt-2">Accountability</span>
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed font-light">
-                Our governance structure is designed to provide oversight and strategic direction for all CTF programs. The leadership team ensures that resources are allocated efficiently to maximize impact.
+                The compliance overview confirms the registration statuses listed above.
               </p>
               <ul className="space-y-6">
                 {[
-                  'Board of trustees oversight',
-                  'Bi-annual financial auditing',
-                  'Program impact assessment',
-                  'Standardized mentorship procedures',
+                  'CAC registration active',
+                  'SCUML certification active',
+                  'EFCC compliance verified',
+                  'Annual documentation submitted',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-4 group">
                     <div className="w-8 h-8 rounded-full bg-ctf-pink/10 text-ctf-pink flex items-center justify-center group-hover:bg-ctf-crimson group-hover:text-white transition-all">
-                      <Scale size={16} />
+                      <ShieldCheck size={16} />
                     </div>
                     <span className="text-sm font-bold uppercase tracking-widest text-gray-700">{item}</span>
                   </li>
@@ -169,7 +182,7 @@ const Governance = () => {
                 <div className="bg-white p-12 rounded-[38px] flex flex-col gap-8">
                   <div className="text-center border-b border-gray-100 pb-8">
                     <h4 className="text-lg font-black text-ctf-purple uppercase tracking-widest">Compliance Status</h4>
-                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em]">Last Updated: April 2026</span>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em]">Current snapshot</span>
                   </div>
                   <div className="flex flex-col gap-6">
                     {complianceRows.map((row) => (
@@ -179,9 +192,9 @@ const Governance = () => {
                       </div>
                     ))}
                   </div>
-                  <button className="w-full py-5 bg-ctf-purple text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl shadow-ctf-purple/20 hover:bg-ctf-crimson transition-all">
-                    Download Annual Report
-                  </button>
+                  <a href="/reports/compliance-overview-2026.txt" download className="block w-full py-5 text-center bg-ctf-purple text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl shadow-ctf-purple/20 hover:bg-ctf-crimson transition-all">
+                    Download Compliance Overview
+                  </a>
                 </div>
               </div>
             </div>

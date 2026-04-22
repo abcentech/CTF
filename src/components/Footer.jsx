@@ -96,7 +96,7 @@ const Footer = () => {
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start">
             <p className="text-gray-500 text-xs font-medium">
-              © 2026 Christian Teenagers Foundation (CTF). All rights reserved.
+              Copyright 2026 Christian Teenagers Foundation (CTF). All rights reserved.
             </p>
             <p className="text-[10px] text-gray-600 uppercase tracking-widest mt-1">
               SCUML Certified | EFCC Compliance | CAC Registered

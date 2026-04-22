@@ -1,97 +1,209 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { Shield, Target, Eye, Users, History, Building2 } from 'lucide-react';
+import { Shield, Target, Eye, Users, History, Award, Building2 } from 'lucide-react';
+import founderFeatureImg from '../assets/ctf/founder-feature.jpg';
+import founderPortraitImg from '../assets/ctf/founder-portrait.jpg';
+import bisolaImg from '../assets/ctf/bisola.jpg';
+import deborahImg from '../assets/ctf/deborah.jpg';
+import elegbedeImg from '../assets/ctf/elegbede.jpg';
+import faithfulImg from '../assets/ctf/faithful.jpg';
+import favourImg from '../assets/ctf/favour.jpg';
+import greatpeaceImg from '../assets/ctf/greatpeace.jpg';
+import oreImg from '../assets/ctf/ore.jpg';
+import temiloluwaImg from '../assets/ctf/temiloluwa.jpg';
+import tuwaseImg from '../assets/ctf/tuwase.jpg';
 
 const About = () => {
-  const leadership = [
-    { name: 'Pst. Oluwatosin Noiki (Mr. Tee)', role: 'Founder & Visionary', bio: 'Founder of the Christian Teenagers Foundation (CTF). Committed to raising a generation that is spiritually alive, intellectually equipped, socially responsible, and globally relevant.' },
-    { name: 'Amarachi Aririsichukwu', role: 'General Secretary', bio: 'Directs administrative structure, ensuring institutional clarity and seamless coordination of foundation operations.' },
-    { name: 'Greatpeace Edionwele', role: 'Prayer Director', bio: 'Coordinates the spiritual engine of CTF, overseeing the daily prayer chain and intercessory systems.' },
-    { name: 'Tuwase David', role: 'Outreach Director', bio: 'Leads expansion efforts into secondary schools, managing grassroots engagements and outreaches.' },
-    { name: 'Ore Martins', role: 'Digital & Creative Director', bio: "Drives the creative vision and digital strategy, ensuring CTF's message reaches teenagers globally." },
-    { name: 'Ifeanyi Emmanuel', role: 'Finance Director', bio: 'Oversees financial accountability and systems, ensuring resources are mobilized for maximum student impact.' },
-    { name: 'Abore Simisola', role: 'Director of Welfare', bio: 'Ensures the personal well-being and welfare of every member within the community.' },
+  const [isFounderModalOpen, setIsFounderModalOpen] = useState(false);
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setIsFounderModalOpen(false);
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
+  const founderProfile = {
+    name: 'Pst. Oluwatosin Noiki',
+    alias: 'Mr. Tee',
+    title: 'Founder, Christian Teenagers Foundation',
+    intro:
+      'Pst. Oluwatosin Noiki is the visionary founder of Christian Teenagers Foundation (CTF), a movement committed to raising spirit-filled teenagers who are equipped to influence their world with purpose, excellence, and integrity.',
+    details: [
+      'Founded CTF on February 19, 2018.',
+      'Leads a multi-campus and multi-platform youth development movement.',
+      'Champions spiritual growth, academic excellence, leadership development, and real-world relevance.',
+      'Holds a bold vision of influencing senior secondary school students across Nigeria.',
+    ],
+    closing:
+      'His leadership reflects a commitment to raising teenagers who are spiritually alive, intellectually equipped, socially responsible, and globally relevant.',
+  };
+
+  const executiveTeam = [
+    { name: 'Pst. Oluwatosin Noiki', office: 'Founder', image: founderPortraitImg },
+    { name: 'Amarachi Aririsichukwu', office: 'General Secretary', image: null },
+    { name: 'Greatpeace Edionwele', office: 'Prayer Director', image: greatpeaceImg },
+    { name: 'Tuwase David', office: 'Outreach Director', image: tuwaseImg },
+    { name: 'Ore Martins', office: 'Digital & Creative Director', image: oreImg },
+    { name: 'Ifeanyi Emmanuel', office: 'Finance Director', image: null },
+    { name: 'Abore Simisola', office: 'Welfare & Birthday Director', image: null },
   ];
 
-  const partners = [
-    'GWAT Private School',
-    'Jofem Secondary School',
-    'Badore Community College',
-    'Olomu Community High School',
-    'Millennium College',
+  const portraitGallery = [
+    { name: 'Bisola Olaseni', office: 'CTF Alumni Executive 1', image: bisolaImg },
+    { name: 'Deborah Omotayo', office: 'CTF International Rep', image: deborahImg },
+    { name: 'Elegbede Joshua', office: 'CTF Alumni Executive 2', image: elegbedeImg },
+    { name: 'Faithful Oluwagbemi', office: 'CTF Alumni Executive 4', image: faithfulImg },
+    { name: 'Favour Kuyebi', office: 'CTF Alumni Executive 4', image: favourImg },
+    { name: 'Temiloluwa Olanipekun', office: 'CTF Alumni Executive 3', image: temiloluwaImg },
   ];
 
-  const pillars = [
-    { name: 'Academic Excellence', framework: 'PRIZE', details: 'Productivity, Responsibility, Integrity, Zeal, Excellence. Guiding students to attain top-tier results through disciplined study habits.' },
-    { name: 'Financial Intelligence', framework: 'CASHIER', details: 'Budgeting, Avoiding Scams, Savings, Hard work, Integrity, Entrepreneurship, Reaping & Sowing.' },
-    { name: 'Social Adeptness', framework: 'FRIENDS', details: 'Family First, Respect for Mentors, Intentional Networking, Emotional Intelligence, Social Media Discipline.' },
-    { name: 'Leadership Excellence', framework: 'VOWELS', details: 'Authenticity, Empathy, Inspiration, Originality, Understanding Strengths.' },
-    { name: 'Christ-like Spirituality', framework: 'GROW', details: 'Gospel commitment, Renewal of Mind, Outreach/Service, Worship and the Word.' },
-  ];
-
-  const timeline = [
-    { year: '2018', event: 'Official inauguration on February 19 with 7 members in Egbeda, Lagos.' },
-    { year: '2020', event: 'COVID-19 pivot: transitioned to global online platforms to stay connected.' },
-    { year: '2021', event: 'Established the first standalone community library in Egbeda for students.' },
-    { year: '2024', event: 'Major expansion to public schools across Lagos Island and Mainland.' },
-    { year: '2025', event: 'Launched the CTF Scholarship Program and the Life on Campus (LOC) initiative.' },
+  const reportHighlights = [
+    { icon: Users, title: '2,000+ Active Members', text: 'A growing community of student members continues to participate in CTF programs and mentorship.' },
+    { icon: History, title: '2018 Inauguration', text: 'Founded on February 19, 2018, in Egbeda, Lagos State.' },
+    { icon: Shield, title: 'CAC / SCUML / EFCC', text: 'CTF is registered and operates within the required compliance framework.' },
+    { icon: Award, title: '19.5M+ Mobilized', text: 'Funding and program support continue to drive CTF activities.' },
+    { icon: Eye, title: 'Global Footprint', text: 'Alumni are currently studying in the United States, United Kingdom, Canada, Ukraine, and Germany.' },
   ];
 
   return (
     <div className="pt-24 flex flex-col bg-white">
       <section id="story" className="py-24 bg-card-bg relative overflow-hidden">
-        <div className="container relative z-10 text-center">
-          <Motion.h3
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-ctf-pink font-black uppercase tracking-[0.4em] mb-6 text-sm"
-          >
-            The Heart of CTF
-          </Motion.h3>
-          <Motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-9xl font-black text-ctf-crimson uppercase tracking-tighter leading-none mb-12"
-          >
-            Our <span className="text-ctf-purple italic">Story</span>
-          </Motion.h1>
-          <p className="text-2xl text-gray-400 font-light leading-relaxed max-w-4xl mx-auto italic border-t border-gray-100 pt-12">
-            "We provide teenagers with equipment for clarity, capacity, and discipline to navigate modern social pressures."
-          </p>
-        </div>
-      </section>
-
-      <section className="py-24 bg-white">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-20">
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-4xl font-black text-ctf-crimson uppercase tracking-tighter italic">From Egbeda <br /> to the World</h2>
-              <p className="text-gray-600 leading-relaxed font-light text-lg">
-                Founded on February 19, 2018, the Christian Teenagers Foundation (CTF) began with a clear mandate: raising a people without blemish. What started with just seven people has transformed into a strategic movement impacting over 600,000 teenagers across Nigeria.
+              <Motion.h3
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-ctf-pink font-black uppercase tracking-[0.4em] mb-6 text-sm"
+              >
+                About CTF
+              </Motion.h3>
+              <Motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-5xl md:text-9xl font-black text-ctf-crimson uppercase tracking-tighter leading-none"
+              >
+                Our <span className="text-ctf-purple italic">Story</span>
+              </Motion.h1>
+              <p className="text-2xl text-gray-600 font-light leading-relaxed italic border-t border-gray-100 pt-10">
+                Christian Teenagers Foundation (CTF) is a legally registered Nigerian youth development organization focused on mentoring, leadership formation, academic excellence, and faith-based character development.
               </p>
-              <p className="text-gray-600 leading-relaxed font-light text-lg">
-                By providing structured development frameworks across five core pillars, we equip young people with the spiritual, intellectual, and social tools needed for global relevance.
-              </p>
-              <div className="bg-gray-50 p-8 rounded-3xl border-l-4 border-ctf-pink">
-                <History className="text-ctf-pink mb-4" size={32} />
-                <h4 className="text-lg font-black text-ctf-purple uppercase mb-2">Our Footprint</h4>
-                <p className="text-sm text-gray-500 italic">Global alumni footprint currently spans the United States, UK, Canada, Ukraine, and Germany.</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-lg">
+                  <p className="text-xs font-black uppercase tracking-[0.3em] text-ctf-pink mb-2">Founded</p>
+                  <p className="text-2xl font-black text-ctf-crimson">February 19, 2018</p>
+                </div>
+                <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-lg">
+                  <p className="text-xs font-black uppercase tracking-[0.3em] text-ctf-pink mb-2">Headquarters</p>
+                  <p className="text-2xl font-black text-ctf-crimson">Egbeda, Lagos</p>
+                </div>
               </div>
             </div>
 
-            <div className="space-y-6">
-              {timeline.map((item, i) => (
-                <Motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex gap-6 items-start group"
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-ctf-crimson/20 to-ctf-purple/20 blur-3xl rounded-[40px]" />
+                <button
+                  type="button"
+                  onClick={() => setIsFounderModalOpen(true)}
+                  className="relative overflow-hidden rounded-[40px] shadow-2xl border border-white/60 text-left w-full group"
                 >
-                  <span className="text-3xl font-black text-ctf-purple/30 group-hover:text-ctf-crimson transition-colors pt-1">{item.year}</span>
-                  <div className="p-6 bg-bg rounded-2xl border border-gray-100 flex-grow group-hover:bg-white group-hover:shadow-2xl transition-all">
-                    <p className="text-gray-500 font-bold uppercase tracking-tight italic">{item.event}</p>
+                  <img src={founderFeatureImg} alt="Pst. Oluwatosin Noiki addressing a CTF audience" className="w-full h-[520px] object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-8 text-white">
+                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-ctf-pink mb-2">Founder Spotlight</p>
+                    <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">{founderProfile.name}</h3>
+                    <p className="text-white/80 mt-3 max-w-md">
+                      {founderProfile.intro}
+                    </p>
+                    <span className="inline-flex mt-5 text-xs font-black uppercase tracking-[0.3em] bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                      Click to read more
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <section id="highlights" className="py-24 bg-white">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-7xl font-black text-ctf-crimson uppercase tracking-tighter italic">
+              Key <span className="text-ctf-purple">Highlights</span>
+            </h2>
+            <p className="text-gray-500 max-w-3xl mx-auto mt-5 text-lg leading-relaxed">
+              CTF&apos;s story is rooted in mentoring, school outreach, academic support, and a growing global footprint.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {reportHighlights.map((item, i) => (
+              <Motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="bg-card-bg p-8 rounded-[36px] border border-gray-100 shadow-xl shadow-gray-200/40"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-ctf-pink mb-6 shadow-lg">
+                  <item.icon size={30} />
+                </div>
+                <h3 className="text-2xl font-black text-ctf-purple uppercase mb-4">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.text}</p>
+              </Motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="leadership" className="py-24 bg-card-bg border-y border-gray-100">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="space-y-8">
+              <h2 className="text-4xl md:text-7xl font-black text-ctf-crimson uppercase tracking-tighter italic">
+                Founder & <span className="text-ctf-purple">Leadership</span>
+              </h2>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                The leadership team serves as the administrative and strategic backbone of the foundation. Portraits are shown where available, and names with offices are listed where a portrait is not available.
+              </p>
+              <div className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-xl">
+                <h3 className="text-lg font-black text-ctf-purple uppercase mb-3">Leadership Reference</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  CTF was founded in 2018 to build a structured mentorship and leadership development system for teenagers navigating academic, social, and spiritual challenges.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {executiveTeam.map((member, i) => (
+                <Motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  className="bg-white rounded-[32px] overflow-hidden shadow-2xl border border-gray-100"
+                >
+                  <button
+                    type="button"
+                    onClick={member.name === founderProfile.name ? () => setIsFounderModalOpen(true) : undefined}
+                    className="aspect-[4/5] bg-gray-50 w-full text-left"
+                    disabled={member.name !== founderProfile.name}
+                  >
+                    {member.image ? (
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-ctf-crimson/10 to-ctf-purple/10 text-ctf-crimson text-6xl font-black">
+                        {member.name.charAt(0)}
+                      </div>
+                    )}
+                  </button>
+                  <div className="p-6">
+                    <h3 className="text-xl font-black text-ctf-crimson uppercase mb-1">{member.name}</h3>
+                    <p className="text-sm font-bold uppercase tracking-[0.2em] text-ctf-purple">{member.office}</p>
                   </div>
                 </Motion.div>
               ))}
@@ -100,83 +212,24 @@ const About = () => {
         </div>
       </section>
 
-      <section id="vision" className="py-24 bg-card-bg">
+      <section className="py-24 bg-white">
         <div className="container">
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              { icon: Eye, title: 'Our Vision', content: 'Raising a generation of Spirit-Filled teenagers who will transform their world.', color: 'ctf-crimson' },
-              { icon: Target, title: 'Our Mission', content: 'Equipping teenagers with the skillset and resources to attain excellence in academics, finance, social lives, leadership, and spirituality.', color: 'ctf-purple' },
-              { icon: Shield, title: 'Our Mandate', content: '"Oluwatosin, raise me a people without blemish." - 1 Timothy 4:12', color: 'ctf-pink' },
-            ].map((item) => (
-              <div key={item.title} className="bg-white p-12 rounded-[50px] shadow-2xl shadow-gray-200 border border-gray-100 text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center text-ctf-pink mx-auto mb-10">
-                  <item.icon size={32} />
-                </div>
-                <h3 className="text-2xl font-black text-ctf-purple uppercase mb-6">{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed font-light italic">"{item.content}"</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="pillars" className="py-24 bg-ctf-crimson text-white">
-        <div className="container">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-7xl font-black uppercase mb-6 tracking-tighter">Development <span className="text-ctf-pink italic">Frameworks</span></h2>
-            <p className="text-white/70 max-w-3xl mx-auto text-lg font-light leading-relaxed">
-              Comprehensive systems that translate kingdom principles into measurable goals across five core dimensions of life.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {pillars.map((pillar, i) => (
+          <div className="grid lg:grid-cols-3 gap-8">
+            {portraitGallery.map((item, i) => (
               <Motion.div
-                key={pillar.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-10 bg-white/5 border border-white/10 rounded-[40px] backdrop-blur-sm flex flex-col justify-between"
-              >
-                <div className="flex justify-between items-start mb-8">
-                  <h4 className="text-2xl font-black uppercase leading-tight italic">{pillar.name}</h4>
-                  <span className="px-4 py-2 bg-ctf-pink text-[10px] font-black tracking-widest uppercase rounded-full">{pillar.framework}</span>
-                </div>
-                <p className="text-white/60 leading-relaxed font-light text-sm italic">
-                  {pillar.details}
-                </p>
-              </Motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="leadership" className="py-24 bg-white">
-        <div className="container">
-          <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-8xl font-black text-ctf-crimson uppercase tracking-tighter italic">Leadership <span className="text-ctf-purple">& Stewardship</span></h2>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-12">
-            {leadership.map((member, i) => (
-              <Motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30 }}
+                key={item.name}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`bg-card-bg p-12 rounded-[60px] border border-gray-100 flex flex-col gap-8 ${i === 0 ? 'lg:col-span-3 lg:flex-row items-center border-l-8 border-l-ctf-crimson' : ''}`}
+                transition={{ delay: i * 0.07 }}
+                className="bg-card-bg rounded-[32px] overflow-hidden shadow-xl border border-gray-100"
               >
-                <div className={`${i === 0 ? 'lg:w-1/3' : 'w-full'} aspect-square bg-white rounded-[40px] shadow-xl overflow-hidden`}>
-                  <div className="w-full h-full bg-gradient-to-br from-ctf-crimson/5 to-ctf-purple/10 flex items-center justify-center text-ctf-purple text-6xl font-black">
-                    {member.name.charAt(0)}
-                  </div>
+                <div className="aspect-[4/4]">
+                  <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                 </div>
-                <div className={`${i === 0 ? 'lg:w-2/3 lg:pl-12' : 'w-full'}`}>
-                  <h3 className="text-3xl font-black text-ctf-crimson uppercase mb-2 italic">{member.name}</h3>
-                  <h4 className="text-xs font-bold text-ctf-purple uppercase tracking-[0.3em] mb-8">{member.role}</h4>
-                  <p className="text-gray-500 leading-relaxed font-light italic">"{member.bio}"</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-black text-ctf-purple uppercase">{item.name}</h3>
+                  <p className="text-sm font-bold text-ctf-crimson uppercase tracking-widest mt-2">{item.office}</p>
                 </div>
               </Motion.div>
             ))}
@@ -184,28 +237,64 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-bg border-t border-gray-100">
-        <div className="container">
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl font-black text-ctf-purple uppercase tracking-tighter leading-none mb-6 italic">Strategic <br /><span className="text-ctf-crimson">Partner Schools</span></h3>
-              <p className="text-gray-500 font-light italic text-lg leading-relaxed mb-6">"Expansion into public and private institutions to reach teenagers at the source."</p>
-            </div>
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {partners.map((school) => (
-                <div key={school} className="bg-white p-8 rounded-3xl border border-gray-100 flex items-center gap-4 group hover:bg-ctf-purple transition-all shadow-xl shadow-gray-200/50">
-                  <Building2 size={24} className="text-ctf-pink group-hover:text-white" />
-                  <span className="text-sm font-black text-ctf-purple uppercase tracking-tight group-hover:text-white">{school}</span>
+      {isFounderModalOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4 py-8"
+          onClick={() => setIsFounderModalOpen(false)}
+          role="presentation"
+        >
+          <div
+            className="w-full max-w-4xl overflow-hidden rounded-[36px] bg-white shadow-2xl border border-white/30"
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="founder-modal-title"
+          >
+            <div className="grid lg:grid-cols-2">
+              <div className="relative min-h-[320px] lg:min-h-full">
+                <img src={founderFeatureImg} alt="Pst. Oluwatosin Noiki" className="h-full w-full object-cover" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-6 text-white">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-ctf-pink mb-2">{founderProfile.title}</p>
+                  <h3 id="founder-modal-title" className="text-3xl md:text-4xl font-black uppercase tracking-tighter">
+                    {founderProfile.name}
+                  </h3>
+                  <p className="text-white/70 text-sm mt-2">Also known as {founderProfile.alias}</p>
                 </div>
-              ))}
-              <div className="bg-ctf-crimson/10 p-8 rounded-3xl border border-ctf-crimson/20 flex items-center gap-4">
-                <Users size={24} className="text-ctf-crimson" />
-                <span className="text-sm font-black text-ctf-crimson uppercase tracking-tight">100+ Schools Total</span>
+              </div>
+
+              <div className="p-8 md:p-10 lg:p-12 flex flex-col gap-6">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.35em] text-ctf-pink mb-3">Founder Profile</p>
+                  <p className="text-gray-600 leading-relaxed text-lg">{founderProfile.intro}</p>
+                </div>
+
+                <div className="space-y-4">
+                  {founderProfile.details.map((detail) => (
+                    <div key={detail} className="flex gap-3 items-start rounded-2xl bg-card-bg px-4 py-4">
+                      <div className="mt-1 h-2.5 w-2.5 rounded-full bg-ctf-crimson shrink-0" />
+                      <p className="text-sm md:text-base text-gray-700 leading-relaxed">{detail}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="rounded-3xl bg-ctf-crimson/5 p-5 border border-ctf-crimson/10">
+                  <p className="text-sm text-gray-700 leading-relaxed">{founderProfile.closing}</p>
+                </div>
+
+                <div className="flex justify-end pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsFounderModalOpen(false)}
+                    className="px-6 py-3 rounded-full bg-ctf-crimson text-white font-black uppercase tracking-widest text-xs hover:bg-ctf-pink transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      )}
     </div>
   );
 };
