@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavHashLink as NavLink } from 'react-router-hash-link';
+import { HashLink as NavLink } from 'react-router-hash-link';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { navItems } from '../data/navData';

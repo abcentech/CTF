@@ -37,7 +37,7 @@ export const navItems = [
       { label: 'Become a Member', href: '/get-involved#member' },
       { label: 'Request a Mentor', href: '/get-involved#mentor' },
       { label: 'Become a Partner', href: '/get-involved#partner' },
-      { label: 'Support / Donate', href: '/get-involved#donate' }
+      { label: 'Become a CTF Volunteer', href: '/get-involved#volunteer-new' }
     ]
   },
   {

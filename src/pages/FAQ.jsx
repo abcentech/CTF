@@ -9,10 +9,11 @@ const FAQ = () => {
   const faqs = [
     { q: 'What is Christian Teenagers Foundation?', a: 'CTF is a legally registered Nigerian youth development organization focused on mentoring, leadership formation, academic excellence, and faith-based character development.' },
     { q: 'What is the mission of CTF?', a: 'To equip teenagers with the skillset and resources to attain the highest level of excellence in their academics, finance, social lives, leadership, and spirituality.' },
-    { q: 'What are the flagship programs?', a: 'Life on Campus (LOC), Course of Study Finder (COS), Digital Detergent, Scholarship Program, Teacher of the Year, Rebuilders Academy, and Monthly Conferences & Prayer Chain.' },
+    { q: 'Is CTF only for secondary school students?', a: 'No. While CTF focuses on teenagers in secondary school, our programs like Life on Campus (LOC) and the CTF Alumni network cater to students transitioning into and already in university.' },
+    { q: 'What are the flagship programs?', a: 'Life on Campus (LOC), Course of Study Finder (COS), Digital Detergent, Scholarship Program, Teacher of the Year, Rebuilders Academy, Monthly Conferences, and many more.' },
     { q: 'Is CTF registered?', a: 'Yes. The organization is registered with the Corporate Affairs Commission (CAC) and holds SCUML certification.' },
-    { q: 'How can I join or support CTF?', a: 'Use the Get Involved page for membership, mentorship, partnership, or support options.' },
-    { q: 'Where can I read more about governance?', a: 'The Governance page provides summaries of CTF&apos;s compliance and organizational information.' },
+    { q: 'How can I partner with CTF?', a: 'You can partner with us through financial support, professional mentorship, or by bringing CTF programs to your school. Contact us via our partnership form or WhatsApp for more details.' },
+    { q: 'Governance & Organizational Info', a: 'The Governance page provides summaries of CTF’s compliance and organizational information.' },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);

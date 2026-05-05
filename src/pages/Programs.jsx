@@ -8,8 +8,11 @@ import scholarshipImg from '../assets/ctf/scholarship-1.jpg';
 import toyImg from '../assets/ctf/scholarship-2.jpg';
 import rebuilderImg from '../assets/ctf/outreach-covenant.jpg';
 import conferenceImg from '../assets/ctf/campus-session.jpg';
+import programsFeatureImg from '../assets/ctf/programs-feature.png';
 
 const Programs = () => {
+  const whatsappLink = "https://wa.me/2349066699299";
+
   const flagshipSystems = [
     {
       id: 'loc',
@@ -143,14 +146,14 @@ const Programs = () => {
                       <QrCode className="text-ctf-crimson mb-4" size={32} />
                       <p className="text-sm text-gray-700 font-bold uppercase tracking-tight leading-relaxed">{sys.details}</p>
                     </div>
-                    <div className="bg-ctf-purple/5 p-6 rounded-3xl border border-ctf-purple/10 flex flex-col justify-center">
-                      <div className="flex items-center gap-3 text-ctf-purple font-black text-xs uppercase tracking-widest mb-4">
+                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="bg-ctf-purple/5 p-6 rounded-3xl border border-ctf-purple/10 flex flex-col justify-center group hover:bg-ctf-purple transition-all">
+                      <div className="flex items-center gap-3 text-ctf-purple font-black text-xs uppercase tracking-widest mb-4 group-hover:text-white">
                         Program Details <ArrowRight size={16} />
                       </div>
-                      <div className="flex items-center gap-3 text-ctf-crimson font-black text-xs uppercase tracking-widest">
+                      <div className="flex items-center gap-3 text-ctf-crimson font-black text-xs uppercase tracking-widest group-hover:text-white">
                         View more <ArrowRight size={16} />
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </Motion.div>
@@ -171,8 +174,9 @@ const Programs = () => {
             {initiatives.map((item, i) => (
               <Motion.div
                 key={item.id}
+                id={item.id}
                 initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="bg-card-bg rounded-[44px] border border-gray-100 shadow-2xl shadow-gray-200/50 overflow-hidden"
@@ -189,6 +193,9 @@ const Programs = () => {
                   </div>
                   <h3 className="text-3xl font-black text-ctf-purple uppercase mb-5 italic">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed font-light italic">{item.desc}</p>
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-3 text-ctf-crimson font-black uppercase tracking-widest hover:text-ctf-pink transition-colors">
+                    Join Initiative <ArrowRight size={18} />
+                  </a>
                 </div>
               </Motion.div>
             ))}
@@ -216,7 +223,7 @@ const Programs = () => {
               </div>
             </div>
             <div className="lg:w-1/2 relative z-10">
-              <img src={conferenceImg} alt="CTF gathering" className="w-full rounded-[40px] object-cover shadow-2xl" />
+              <img src={programsFeatureImg} alt="CTF gathering" className="w-full rounded-[40px] object-cover shadow-2xl" />
             </div>
           </div>
         </div>

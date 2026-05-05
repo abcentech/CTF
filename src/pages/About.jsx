@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { Shield, Target, Eye, Users, History, Award, Building2 } from 'lucide-react';
+import { Shield, Target, Eye, Users, History, Award, Building2, MapPin } from 'lucide-react';
 import founderFeatureImg from '../assets/ctf/founder-feature.jpg';
 import founderPortraitImg from '../assets/ctf/founder-portrait.jpg';
 import bisolaImg from '../assets/ctf/bisola.jpg';
@@ -12,6 +12,9 @@ import greatpeaceImg from '../assets/ctf/greatpeace.jpg';
 import oreImg from '../assets/ctf/ore.jpg';
 import temiloluwaImg from '../assets/ctf/temiloluwa.jpg';
 import tuwaseImg from '../assets/ctf/tuwase.jpg';
+import amarachiImg from '../assets/ctf/amarachi.jpg';
+import ifeanyiImg from '../assets/ctf/ifeanyi.png';
+import simisolaImg from '../assets/ctf/simisola.jpg';
 
 const About = () => {
   const [isFounderModalOpen, setIsFounderModalOpen] = useState(false);
@@ -43,12 +46,12 @@ const About = () => {
 
   const executiveTeam = [
     { name: 'Pst. Oluwatosin Noiki', office: 'Founder', image: founderPortraitImg },
-    { name: 'Amarachi Aririsichukwu', office: 'General Secretary', image: null },
+    { name: 'Amarachi Aririsichukwu', office: 'General Secretary', image: amarachiImg },
     { name: 'Greatpeace Edionwele', office: 'Prayer Director', image: greatpeaceImg },
     { name: 'Tuwase David', office: 'Outreach Director', image: tuwaseImg },
     { name: 'Ore Martins', office: 'Digital & Creative Director', image: oreImg },
-    { name: 'Ifeanyi Emmanuel', office: 'Finance Director', image: null },
-    { name: 'Abore Simisola', office: 'Welfare & Birthday Director', image: null },
+    { name: 'Ifeanyi Emmanuel', office: 'Finance Director', image: ifeanyiImg },
+    { name: 'Abore Simisola', office: 'Welfare & Birthday Director', image: simisolaImg },
   ];
 
   const portraitGallery = [
@@ -62,10 +65,11 @@ const About = () => {
 
   const reportHighlights = [
     { icon: Users, title: '2,000+ Active Members', text: 'A growing community of student members continues to participate in CTF programs and mentorship.' },
+    { icon: MapPin, title: 'Active in 9 States in Nigeria', text: 'CTF is currently active in 9 states in Nigeria across secondary schools and campuses.' },
+    { icon: Eye, title: 'Global Footprint', text: 'Alumni are currently studying in the United States, United Kingdom, Canada, Ukraine, and Germany.' },
     { icon: History, title: '2018 Inauguration', text: 'Founded on February 19, 2018, in Egbeda, Lagos State.' },
     { icon: Shield, title: 'CAC / SCUML / EFCC', text: 'CTF is registered and operates within the required compliance framework.' },
-    { icon: Award, title: '19.5M+ Mobilized', text: 'Funding and program support continue to drive CTF activities.' },
-    { icon: Eye, title: 'Global Footprint', text: 'Alumni are currently studying in the United States, United Kingdom, Canada, Ukraine, and Germany.' },
+    { icon: Award, title: '7-Year Impact Summary', text: 'Download our comprehensive 7-year impact summary covering reach, leadership, and transformation.' },
   ];
 
   return (

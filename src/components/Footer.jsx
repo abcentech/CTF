@@ -1,9 +1,20 @@
 import React from 'react';
-import { NavHashLink as NavLink } from 'react-router-hash-link';
-import { Shield, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { HashLink as NavLink } from 'react-router-hash-link';
+import { Shield, Mail, MapPin, ExternalLink, Facebook, Instagram, Youtube, MessageCircle, Send, Twitter, Radio, Music, MessageSquare } from 'lucide-react';
 import { navItems } from '../data/navData';
 
 const Footer = () => {
+  const socialLinks = [
+    { icon: Facebook, href: 'https://bit.ly/CTFfbook', color: 'hover:bg-blue-600', label: 'Facebook' },
+    { icon: Instagram, href: 'https://www.instagram.com/christianteenagersfoundation/', color: 'hover:bg-pink-600', label: 'Instagram' },
+    { icon: Youtube, href: 'https://bit.ly/CTFyoutube', color: 'hover:bg-red-600', label: 'YouTube' },
+    { icon: Send, href: 'https://t.me/+lkSgWFPP_DFhMzlk', color: 'hover:bg-blue-400', label: 'Telegram' },
+    { icon: Twitter, href: 'https://bit.ly/CTFtwitter', color: 'hover:bg-black', label: 'X (Twitter)' },
+    { icon: Radio, href: 'https://bit.ly/CTFmixlr', color: 'hover:bg-orange-500', label: 'Mixlr' },
+    { icon: Music, href: 'https://bit.ly/CTFPodcasts', color: 'hover:bg-green-500', label: 'Spotify' },
+    { icon: MessageSquare, href: 'https://whatsapp.com/channel/0029Va63XXaFnSzG1nD3zC2u', color: 'hover:bg-[#25D366]', label: 'WhatsApp Channel' },
+  ];
+
   return (
     <footer className="bg-[#1A1A1A] text-white pt-24 pb-12 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ctf-crimson via-ctf-pink to-ctf-purple" />
@@ -24,16 +35,12 @@ const Footer = () => {
             <p className="text-gray-400 text-sm leading-relaxed font-light">
               Raising a Generation of Spirit-Filled Teenagers to Change the World. Registered with Corporate Affairs Commission (CAC), Nigeria.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <NavLink smooth to="/get-involved#member" className="px-4 py-3 rounded-xl bg-white/5 text-sm font-bold uppercase tracking-widest hover:bg-ctf-crimson transition-all">
-                Join
-              </NavLink>
-              <a href="mailto:CTFinquiries@gmail.com" className="px-4 py-3 rounded-xl bg-white/5 text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
-                Email
-              </a>
-              <NavLink smooth to="/faq" className="px-4 py-3 rounded-xl bg-white/5 text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
-                FAQ
-              </NavLink>
+            <div className="grid grid-cols-4 gap-3">
+              {socialLinks.map((social) => (
+                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center transition-all group ${social.color}`} aria-label={social.label}>
+                  <social.icon size={18} className="text-gray-400 group-hover:text-white" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -56,7 +63,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-10 text-white uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Flagship Programs</h4>
             <ul className="flex flex-col gap-4">
-              {navItems.find(i => i.label === 'PROGRAMS')?.dropdown.map((sub) => (
+              {[
+                { label: 'Scholarship Program', href: '/programs#scholarship' },
+                { label: 'Teacher of the Year', href: '/programs#toy' },
+                { label: 'Rebuilders Academy', href: '/programs#rebuilders' }
+              ].map((sub) => (
                 <li key={sub.label}>
                   <NavLink smooth to={sub.href} className="text-gray-400 hover:text-ctf-pink text-sm transition-colors flex items-center gap-2 group">
                     <ExternalLink size={12} className="opacity-40 group-hover:opacity-100 group-hover:text-ctf-crimson transition-all" />

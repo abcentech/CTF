@@ -5,14 +5,15 @@ import campusImg from '../assets/ctf/campus-group.jpg';
 import outreachImg from '../assets/ctf/outreach-ilorin.jpg';
 import scholarshipImg from '../assets/ctf/scholarship-3.jpg';
 import founderImg from '../assets/ctf/founder-feature.jpg';
+import globeRealImg from '../assets/ctf/globe-real.png';
 
 const Impact = () => {
   const stats = [
-    { label: 'Teenagers Reached', value: '600,000+', icon: Users, color: '#BB1654' },
+    { label: 'Students Mentored', value: '2,000+', icon: Users, color: '#BB1654' },
     { label: 'Gatherings Conducted', value: '200+', icon: Globe, color: '#672A85' },
     { label: 'Scholarships Awarded', value: '41+', icon: Award, color: '#E60975' },
     { label: 'Strategic Partners', value: '150+', icon: Heart, color: '#BB1654' },
-    { label: 'States Reached', value: '9', icon: MapPin, color: '#672A85' },
+    { label: 'States in Nigeria', value: '9', icon: MapPin, color: '#672A85' },
     { label: 'Schools & Campuses', value: '100+', icon: Heart, color: '#E60975' },
   ];
 
@@ -117,7 +118,7 @@ const Impact = () => {
                 Global <br /><span className="text-ctf-pink italic">Footprint</span>
               </h2>
               <p className="text-xl text-white/70 leading-relaxed font-light mb-12">
-                Alumni are studying in the United States, United Kingdom, Canada, Ukraine, and Germany.
+                CTF members are studying in universities across the United States, United Kingdom, Canada, Ukraine, and Germany.
               </p>
               <div className="flex flex-wrap gap-4">
                 {countries.map((country) => (
@@ -128,8 +129,8 @@ const Impact = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="w-full aspect-square bg-white/5 rounded-[60px] border-4 border-white/10 flex items-center justify-center text-white/20 p-12">
-                <Globe size={400} strokeWidth={0.5} className="animate-pulse" />
+              <div className="w-full aspect-square overflow-hidden rounded-[60px] border-4 border-white/10 flex items-center justify-center p-0">
+                <img src={globeRealImg} alt="Global Footprint" className="w-full h-full object-cover opacity-80" />
               </div>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-ctf-pink rounded-full blur-[80px] opacity-40" />
             </div>
@@ -151,8 +152,8 @@ const Impact = () => {
             </div>
 
             <div className="text-center">
-              <a href="/reports/impact-brief-2025.txt" download className="px-12 py-6 bg-ctf-crimson text-white rounded-full font-black uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-ctf-crimson/20">
-                Download Summary
+              <a href="/CTF_7Year_Impact_Report.pdf" download="CTF_7Year_Impact_Report.pdf" className="px-12 py-6 bg-ctf-crimson text-white rounded-full font-black uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-ctf-crimson/20">
+                Download CTF 7Year Impact Report (PDF)
               </a>
             </div>
           </div>

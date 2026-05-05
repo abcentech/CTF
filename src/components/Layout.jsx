@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import WhatsAppButton from './WhatsAppButton';
 
 const Layout = ({ children }) => {
   const { pathname, hash } = useLocation();
@@ -30,6 +31,7 @@ const Layout = ({ children }) => {
           </Motion.main>
         </AnimatePresence>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

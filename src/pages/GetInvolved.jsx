@@ -27,6 +27,15 @@ const GetInvolved = () => {
       details: 'Membership includes a 4-week structured onboarding class.',
     },
     {
+      id: 'volunteer',
+      title: 'Become a CTF Volunteer',
+      href: 'https://wa.me/2349066699299',
+      icon: Heart,
+      color: 'ctf-pink',
+      desc: 'Join our team of dedicated individuals making a difference in the lives of teenagers across Nigeria.',
+      details: 'Open to passionate individuals ready to serve and lead.',
+    },
+    {
       id: 'mentor',
       title: 'Request for a CTF Mentor',
       href: 'https://bit.ly/CTFMentoringPlatform',
@@ -45,13 +54,13 @@ const GetInvolved = () => {
       details: 'For schools, individuals, and organisations interested in transformation.',
     },
     {
-      id: 'donate',
-      title: 'Support / Donate',
-      href: 'https://bit.ly/CTFPayPalGift',
+      id: 'volunteer-new',
+      title: 'Become a CTF Volunteer',
+      href: 'https://bit.ly/CTFmentors',
       icon: Heart,
       color: 'ctf-crimson',
-      desc: 'CTF operates through structured financial systems that support its programs, scholarships, and outreach activities.',
-      details: 'Verified channels are used to process support and donations.',
+      desc: 'Join our team of dedicated individuals making a difference in the lives of teenagers across Nigeria.',
+      details: 'Join our team of dedicated individuals making a difference.',
     },
   ];
 
@@ -126,7 +135,7 @@ const GetInvolved = () => {
 
       <section className="py-24 bg-card-bg">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pathways.map((path, i) => (
               <Motion.div
                 key={path.id}
