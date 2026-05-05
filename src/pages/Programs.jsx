@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import { GraduationCap, Search, Sparkles, Trophy, Users, Calendar, Video, Book, ShieldCheck, ArrowRight, QrCode } from 'lucide-react';
+import { GraduationCap, Search, Sparkles, Trophy, Users, Calendar, Video, Book, ShieldCheck, ArrowRight } from 'lucide-react';
 import locImg from '../assets/ctf/hero-campus.jpg';
 import cosImg from '../assets/ctf/hero-campus-alt.jpg';
 import detergentImg from '../assets/ctf/campus-talk.jpg';
@@ -21,7 +21,9 @@ const Programs = () => {
       desc: 'CTF\'s structured university transition system designed to prepare SS3 students for the academic, social, and spiritual realities of university life.',
       icon: Video,
       tags: ['University Prep', 'Digital Learning', 'Mentorship'],
-      details: 'The companion LOC book includes QR-enabled content, guided reflections, and quizzes for practical learning.',
+      details: 'The companion LOC book includes guided reflections and quizzes for practical learning.',
+      ctaLabel: 'Open LOC Guide',
+      ctaHref: '/get-involved#member',
       image: locImg,
     },
     {
@@ -32,6 +34,8 @@ const Programs = () => {
       icon: Search,
       tags: ['Counselling', 'Career Path', 'Academic Clarity'],
       details: 'Supports both SS3 students choosing university courses and JS3 students selecting academic tracks.',
+      ctaLabel: 'Open Course Finder',
+      ctaHref: 'https://bit.ly/CTF-COSFinder',
       image: cosImg,
     },
     {
@@ -42,6 +46,8 @@ const Programs = () => {
       icon: Sparkles,
       tags: ['Habit Reset', 'Mental Clarity', 'Accountability'],
       details: 'Guides participants toward discipline, purity, and renewed mental clarity through daily structured engagement.',
+      ctaLabel: 'Request Guidance',
+      ctaHref: '/get-involved#mentor',
       image: detergentImg,
     },
   ];
@@ -143,15 +149,17 @@ const Programs = () => {
                   <p className="text-xl text-gray-600 leading-relaxed font-light italic mb-8">{sys.desc}</p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-bg p-6 rounded-3xl border border-gray-100">
-                      <QrCode className="text-ctf-crimson mb-4" size={32} />
-                      <p className="text-sm text-gray-700 font-bold uppercase tracking-tight leading-relaxed">{sys.details}</p>
+                      <p className="text-sm text-gray-700 font-bold uppercase tracking-tight leading-relaxed mb-5">{sys.details}</p>
+                      <a href={sys.ctaHref} target={sys.ctaHref.startsWith('http') ? '_blank' : undefined} rel={sys.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined} className="inline-flex items-center gap-3 text-ctf-crimson font-black text-xs uppercase tracking-widest hover:text-ctf-purple transition-colors">
+                        {sys.ctaLabel} <ArrowRight size={16} />
+                      </a>
                     </div>
                     <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="bg-ctf-purple/5 p-6 rounded-3xl border border-ctf-purple/10 flex flex-col justify-center group hover:bg-ctf-purple transition-all">
                       <div className="flex items-center gap-3 text-ctf-purple font-black text-xs uppercase tracking-widest mb-4 group-hover:text-white">
-                        Program Details <ArrowRight size={16} />
+                        Talk to CTF <ArrowRight size={16} />
                       </div>
                       <div className="flex items-center gap-3 text-ctf-crimson font-black text-xs uppercase tracking-widest group-hover:text-white">
-                        View more <ArrowRight size={16} />
+                        Ask a Question <ArrowRight size={16} />
                       </div>
                     </a>
                   </div>

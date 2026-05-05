@@ -152,8 +152,8 @@ const Impact = () => {
             </div>
 
             <div className="text-center">
-              <a href="/CTF_7Year_Impact_Report.pdf" download="CTF_7Year_Impact_Report.pdf" className="px-12 py-6 bg-ctf-crimson text-white rounded-full font-black uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-ctf-crimson/20">
-                Download CTF 7Year Impact Report (PDF)
+              <a href="CTF_7Year_Impact_Report.pdf" target="_blank" rel="noreferrer" className="px-12 py-6 bg-ctf-crimson text-white rounded-full font-black uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-ctf-crimson/20">
+                Open CTF 7-Year Impact Report (PDF)
               </a>
             </div>
           </div>

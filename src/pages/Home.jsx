@@ -39,8 +39,9 @@ const Home = () => {
 
   const impactMetrics = [
     { label: 'students mentored', value: '2,000+', icon: Users, color: 'ctf-crimson' },
-    { label: 'Active in 9 states in Nigeria', value: '9', icon: Globe, color: 'ctf-purple' },
-    { label: 'Thousands reached through outreaches', value: 'Thousands', icon: Heart, color: 'ctf-crimson' },
+    { label: 'gatherings conducted', value: '200+', icon: Globe, color: 'ctf-purple' },
+    { label: 'scholarships awarded', value: '41+', icon: Heart, color: 'ctf-crimson' },
+    { label: 'states in Nigeria', value: '9', icon: Sparkles, color: 'ctf-pink' },
   ];
 
   const photoCards = [

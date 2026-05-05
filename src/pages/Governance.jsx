@@ -21,17 +21,17 @@ const Governance = () => {
     {
       title: 'Annual Summary 2025',
       description: 'Membership onboarding, school engagement, scholarship support, and LOC/COS.',
-      href: '/reports/annual-summary-2025.txt',
+      href: 'reports/annual-summary-2025.txt',
     },
     {
       title: 'Compliance Overview 2026',
       description: 'CAC, SCUML, EFCC, and reporting status.',
-      href: '/reports/compliance-overview-2026.txt',
+      href: 'reports/compliance-overview-2026.txt',
     },
     {
       title: 'Impact Brief 2025',
       description: 'Reach, gatherings, scholarships, partner schools, and global footprint.',
-      href: '/reports/impact-brief-2025.txt',
+      href: 'reports/impact-brief-2025.txt',
     },
   ];
 
@@ -192,7 +192,7 @@ const Governance = () => {
                       </div>
                     ))}
                   </div>
-                  <a href="/reports/compliance-overview-2026.txt" download className="block w-full py-5 text-center bg-ctf-purple text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl shadow-ctf-purple/20 hover:bg-ctf-crimson transition-all">
+                  <a href="reports/compliance-overview-2026.txt" download className="block w-full py-5 text-center bg-ctf-purple text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl shadow-ctf-purple/20 hover:bg-ctf-crimson transition-all">
                     Download Compliance Overview
                   </a>
                 </div>
