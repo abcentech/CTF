@@ -8,9 +8,9 @@ export const navItems = [
     label: 'ABOUT',
     path: '/about',
     dropdown: [
+      { label: 'Leadership', href: '/about#leadership' },
       { label: 'Our Story', href: '/about#story' },
-      { label: 'Report Highlights', href: '/about#highlights' },
-      { label: 'Leadership', href: '/about#leadership' }
+      { label: 'Report Highlights', href: '/about#highlights' }
     ]
   },
   {
@@ -35,9 +35,9 @@ export const navItems = [
     path: '/get-involved',
     dropdown: [
       { label: 'Become a Member', href: '/get-involved#member' },
-      { label: 'Request a Mentor', href: '/get-involved#mentor' },
-      { label: 'Become a Partner', href: '/get-involved#partner' },
-      { label: 'Become a CTF Volunteer', href: '/get-involved#volunteer-new' }
+      { label: 'Become a Partner.', href: '/get-involved#partner' },
+      { label: 'Become a Volunteer.', href: '/get-involved#volunteer' },
+      { label: 'Request a Mentor.', href: '/get-involved#mentor' }
     ]
   },
   {

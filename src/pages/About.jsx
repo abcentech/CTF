@@ -36,7 +36,7 @@ const About = () => {
       'Pst. Oluwatosin Noiki is the visionary founder of Christian Teenagers Foundation (CTF), a movement committed to raising spirit-filled teenagers who are equipped to influence their world with purpose, excellence, and integrity.',
     details: [
       'Founded CTF on February 19, 2018.',
-      'Leads a multi-campus and multi-platform youth development movement.',
+      'Leads a multi-campus and multi-platform teenager-focused development movement.',
       'Champions spiritual growth, academic excellence, leadership development, and real-world relevance.',
       'Holds a bold vision of influencing senior secondary school students across Nigeria.',
     ],
@@ -93,7 +93,7 @@ const About = () => {
                 Our <span className="text-ctf-purple italic">Story</span>
               </Motion.h1>
               <p className="text-2xl text-gray-600 font-light leading-relaxed italic border-t border-gray-100 pt-10">
-                Christian Teenagers Foundation (CTF) is a legally registered Nigerian youth development organization focused on mentoring, leadership formation, academic excellence, and faith-based character development.
+                Christian Teenagers Foundation (CTF) is a legally registered Nigerian teenager-focused development organization focused on mentoring, leadership formation, academic excellence, and faith-based character development.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-lg">

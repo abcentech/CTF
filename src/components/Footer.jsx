@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashLink as NavLink } from 'react-router-hash-link';
-import { Shield, Mail, MapPin, ExternalLink, Facebook, Instagram, Youtube, MessageCircle, Send, Twitter, Radio, Music, MessageSquare } from 'lucide-react';
+import { Shield, Mail, MapPin, ExternalLink, Facebook, Instagram, Youtube, MessageCircle, Send, Twitter, Video, Music, MessageSquare } from 'lucide-react';
 import { navItems } from '../data/navData';
 
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
     { icon: Youtube, href: 'https://bit.ly/CTFyoutube', color: 'hover:bg-red-600', label: 'YouTube' },
     { icon: Send, href: 'https://t.me/+lkSgWFPP_DFhMzlk', color: 'hover:bg-blue-400', label: 'Telegram' },
     { icon: Twitter, href: 'https://bit.ly/CTFtwitter', color: 'hover:bg-black', label: 'X (Twitter)' },
-    { icon: Radio, href: 'https://bit.ly/CTFmixlr', color: 'hover:bg-orange-500', label: 'Mixlr' },
+    { icon: Video, href: 'https://www.tiktok.com/@christianteenagersfoundation', color: 'hover:bg-black', label: 'TikTok' },
     { icon: Music, href: 'https://bit.ly/CTFPodcasts', color: 'hover:bg-green-500', label: 'Spotify' },
     { icon: MessageSquare, href: 'https://whatsapp.com/channel/0029Va63XXaFnSzG1nD3zC2u', color: 'hover:bg-[#25D366]', label: 'WhatsApp Channel' },
   ];
@@ -18,10 +18,9 @@ const Footer = () => {
   return (
     <footer className="bg-[#1A1A1A] text-white pt-24 pb-12 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ctf-crimson via-ctf-pink to-ctf-purple" />
-      
+
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-          {/* Brand Column */}
           <div className="flex flex-col gap-8">
             <NavLink smooth to="/#" className="flex items-center gap-3">
               <div className="w-12 h-12 bg-ctf-crimson rounded-xl flex items-center justify-center text-white shadow-xl shadow-ctf-crimson/20">
@@ -44,7 +43,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Site Navigation */}
           <div>
             <h4 className="text-lg font-bold mb-10 text-white uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Navigation</h4>
             <ul className="flex flex-col gap-4">
@@ -59,7 +57,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Flagship Programs */}
           <div>
             <h4 className="text-lg font-bold mb-10 text-white uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Flagship Programs</h4>
             <ul className="flex flex-col gap-4">
@@ -78,7 +75,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Details */}
           <div>
             <h4 className="text-lg font-bold mb-10 text-white uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Contact</h4>
             <ul className="flex flex-col gap-6">
@@ -104,7 +100,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="pt-12 border-t border-white/5 flex flex-col gap-8">
           <div className="flex flex-col items-center md:items-start">
             <p className="text-gray-500 text-xs font-medium">
               Copyright 2026 Christian Teenagers Foundation (CTF). All rights reserved.
@@ -112,10 +108,6 @@ const Footer = () => {
             <p className="text-[10px] text-gray-600 uppercase tracking-widest mt-1">
               SCUML Certified | EFCC Compliance | CAC Registered
             </p>
-          </div>
-          <div className="flex gap-8">
-            <NavLink smooth to="/governance" className="text-gray-500 text-xs hover:text-ctf-pink uppercase tracking-widest transition-colors">Compliance</NavLink>
-            <NavLink smooth to="/about#story" className="text-gray-500 text-xs hover:text-ctf-pink uppercase tracking-widest transition-colors">Our Story</NavLink>
           </div>
         </div>
       </div>

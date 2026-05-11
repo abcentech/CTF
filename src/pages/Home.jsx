@@ -1,33 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { motion as Motion, useSpring, useTransform, animate } from 'framer-motion';
+import React from 'react';
+import { motion as Motion } from 'framer-motion';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { ArrowRight, BookOpen, Globe, Award, Users, Heart, Sparkles, ShieldCheck, MapPin, Calendar, Quote } from 'lucide-react';
+import AnimatedCounter from '../components/AnimatedCounter';
 import heroImg from '../assets/ctf/homepage-hero.jpeg';
 import heroAltImg from '../assets/ctf/hero-campus-alt.jpg';
 import campusGroupImg from '../assets/ctf/campus-group.jpg';
-import outreachImg from '../assets/ctf/outreach-covenant.jpg';
+import outreachKwaraImg from '../assets/ctf/outreach-kwara.jpg';
 import scholarshipImg from '../assets/ctf/scholarship-1.jpg';
-
-const Counter = ({ value, duration = 2 }) => {
-  const [displayValue, setDisplayValue] = useState(0);
-  const targetValue = parseInt(value.replace(/,/g, '')) || 0;
-  const suffix = value.replace(/[0-9,]/g, '');
-
-  useEffect(() => {
-    const controls = animate(0, targetValue, {
-      duration,
-      onUpdate: (latest) => setDisplayValue(Math.floor(latest)),
-    });
-    return () => controls.stop();
-  }, [targetValue, duration]);
-
-  return (
-    <span>
-      {displayValue.toLocaleString()}
-      {suffix}
-    </span>
-  );
-};
 
 const Home = () => {
   const credentials = [
@@ -41,7 +21,7 @@ const Home = () => {
     { label: 'students mentored', value: '2,000+', icon: Users, color: 'ctf-crimson' },
     { label: 'gatherings conducted', value: '200+', icon: Globe, color: 'ctf-purple' },
     { label: 'scholarships awarded', value: '41+', icon: Heart, color: 'ctf-crimson' },
-    { label: 'states in Nigeria', value: '9', icon: Sparkles, color: 'ctf-pink' },
+    { label: 'outreaches conducted', value: '200+', icon: Sparkles, color: 'ctf-pink' },
   ];
 
   const photoCards = [
@@ -141,7 +121,7 @@ const Home = () => {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-tr from-ctf-crimson/20 to-ctf-purple/20 blur-3xl rounded-[40px]" />
-              <img src={campusGroupImg} alt="Students preparing for university" className="relative rounded-[40px] shadow-2xl border border-gray-100" />
+              <img src={outreachKwaraImg} alt="Students preparing for university" className="relative rounded-[40px] shadow-2xl border border-gray-100" />
             </div>
           </div>
         </div>
@@ -228,7 +208,7 @@ const Home = () => {
                   <stat.icon size={40} />
                 </div>
                 <h3 className="text-5xl md:text-6xl font-black text-ctf-crimson mb-4 tracking-tighter leading-none">
-                  <Counter value={stat.value} />
+                  <AnimatedCounter value={stat.value} />
                 </h3>
                 <p className="text-gray-500 font-black uppercase text-xs tracking-[0.2em]">{stat.label}</p>
               </Motion.div>

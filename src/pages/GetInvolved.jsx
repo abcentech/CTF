@@ -11,7 +11,7 @@ const GetInvolved = () => {
     fullName: '',
     email: '',
     age: '',
-    interest: 'Become a CTF Member',
+    interest: 'Become a Member',
     schoolOrOrg: '',
     message: '',
   });
@@ -19,7 +19,7 @@ const GetInvolved = () => {
   const pathways = [
     {
       id: 'member',
-      title: 'Become a CTF Member',
+      title: 'Become a Member',
       href: 'https://bit.ly/CTFbiodata2026',
       icon: UserPlus,
       color: 'ctf-crimson',
@@ -28,7 +28,7 @@ const GetInvolved = () => {
     },
     {
       id: 'volunteer',
-      title: 'Become a CTF Volunteer',
+      title: 'Become a Volunteer.',
       href: 'https://wa.me/2349066699299',
       icon: Heart,
       color: 'ctf-pink',
@@ -37,7 +37,7 @@ const GetInvolved = () => {
     },
     {
       id: 'mentor',
-      title: 'Request for a CTF Mentor',
+      title: 'Request a Mentor.',
       href: 'https://bit.ly/CTFMentoringPlatform',
       icon: MessageSquare,
       color: 'ctf-purple',
@@ -46,21 +46,12 @@ const GetInvolved = () => {
     },
     {
       id: 'partner',
-      title: 'Become a CTF Partner',
+      title: 'Become a Partner.',
       href: 'https://bit.ly/CTFPayPalGift',
       icon: Handshake,
       color: 'ctf-pink',
       desc: 'CTF partners with individuals, schools, and organisations to expand its reach and impact through scholarships, outreaches, and institutional support.',
       details: 'For schools, individuals, and organisations interested in transformation.',
-    },
-    {
-      id: 'volunteer-new',
-      title: 'Become a CTF Volunteer',
-      href: 'https://bit.ly/CTFmentors',
-      icon: Heart,
-      color: 'ctf-crimson',
-      desc: 'Join our team of dedicated individuals making a difference in the lives of teenagers across Nigeria.',
-      details: 'Join our team of dedicated individuals making a difference.',
     },
   ];
 
@@ -272,9 +263,10 @@ const GetInvolved = () => {
                   onChange={handleChange}
                   className="px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-ctf-crimson/20 bg-white"
                 >
-                  <option>Become a CTF Member</option>
-                  <option>Request for a CTF Mentor</option>
-                  <option>Become a CTF Partner</option>
+                  <option>Become a Member</option>
+                  <option>Become a Partner.</option>
+                  <option>Become a Volunteer.</option>
+                  <option>Request a Mentor.</option>
                   <option>Support / Donate</option>
                 </select>
               </label>

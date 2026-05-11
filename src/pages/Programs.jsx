@@ -2,12 +2,12 @@ import React from 'react';
 import { motion as Motion } from 'framer-motion';
 import { GraduationCap, Search, Sparkles, Trophy, Users, Calendar, Video, Book, ShieldCheck, ArrowRight } from 'lucide-react';
 import locImg from '../assets/ctf/hero-campus.jpg';
-import cosImg from '../assets/ctf/hero-campus-alt.jpg';
-import detergentImg from '../assets/ctf/campus-talk.jpg';
-import scholarshipImg from '../assets/ctf/scholarship-1.jpg';
+import cosImg from '../assets/ctf/outreach-unilorin.jpg';
+import detergentImg from '../assets/ctf/campus-session.jpg';
+import scholarshipImg from '../assets/ctf/scholarship-4.jpg';
 import toyImg from '../assets/ctf/scholarship-2.jpg';
 import rebuilderImg from '../assets/ctf/outreach-covenant.jpg';
-import conferenceImg from '../assets/ctf/campus-session.jpg';
+import conferenceImg from '../assets/ctf/outreach-abuja.jpg';
 import programsFeatureImg from '../assets/ctf/programs-feature.png';
 
 const Programs = () => {
@@ -22,8 +22,9 @@ const Programs = () => {
       icon: Video,
       tags: ['University Prep', 'Digital Learning', 'Mentorship'],
       details: 'The companion LOC book includes guided reflections and quizzes for practical learning.',
-      ctaLabel: 'Open LOC Guide',
-      ctaHref: '/get-involved#member',
+      ctaLabel: 'Open LOC Guide PDF',
+      ctaHref: 'CTF_5Yr_Report.pdf',
+      download: true,
       image: locImg,
     },
     {
@@ -47,7 +48,7 @@ const Programs = () => {
       tags: ['Habit Reset', 'Mental Clarity', 'Accountability'],
       details: 'Guides participants toward discipline, purity, and renewed mental clarity through daily structured engagement.',
       ctaLabel: 'Request Guidance',
-      ctaHref: '/get-involved#mentor',
+      ctaHref: 'https://wa.me/2349066699299?text=I%20would%20like%20guidance%20on%20Digital%20Detergent',
       image: detergentImg,
     },
   ];
@@ -150,7 +151,13 @@ const Programs = () => {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-bg p-6 rounded-3xl border border-gray-100">
                       <p className="text-sm text-gray-700 font-bold uppercase tracking-tight leading-relaxed mb-5">{sys.details}</p>
-                      <a href={sys.ctaHref} target={sys.ctaHref.startsWith('http') ? '_blank' : undefined} rel={sys.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined} className="inline-flex items-center gap-3 text-ctf-crimson font-black text-xs uppercase tracking-widest hover:text-ctf-purple transition-colors">
+                      <a
+                        href={sys.ctaHref}
+                        target={sys.ctaHref.startsWith('http') ? '_blank' : undefined}
+                        rel={sys.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        download={sys.download || undefined}
+                        className="inline-flex items-center gap-3 text-ctf-crimson font-black text-xs uppercase tracking-widest hover:text-ctf-purple transition-colors"
+                      >
                         {sys.ctaLabel} <ArrowRight size={16} />
                       </a>
                     </div>
@@ -213,23 +220,23 @@ const Programs = () => {
 
       <section className="py-24 bg-bg border-t border-gray-100">
         <div className="container">
-          <div className="bg-ctf-purple p-16 rounded-[80px] text-white flex flex-col lg:flex-row gap-20 items-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-1/2" />
-            <div className="lg:w-1/2 relative z-10">
-              <h2 className="text-4xl md:text-6xl font-black uppercase leading-tight tracking-tighter mb-8">
-                Program <br /><span className="text-ctf-pink italic">Delivery</span>
-              </h2>
-              <p className="text-xl text-white/70 leading-relaxed font-light mb-12">
-                CTF programs are implemented through school-based outreaches, structured mentorship systems, digital learning platforms, conferences, and peer-to-peer learning spaces.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {['Mentorship', 'School Outreach', 'Digital Learning', 'Prayer Chain'].map((item) => (
-                  <div key={item} className="px-6 py-3 bg-white/10 rounded-full border border-white/20">
-                    <span className="text-[10px] font-black uppercase tracking-widest">{item}</span>
+              <div className="bg-ctf-purple p-16 rounded-[80px] text-white flex flex-col lg:flex-row gap-20 items-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-1/2" />
+                <div className="lg:w-1/2 relative z-10">
+                  <h2 className="text-4xl md:text-6xl font-black uppercase leading-tight tracking-tighter mb-8">
+                    Program <br /><span className="text-ctf-pink italic">Delivery</span>
+                  </h2>
+                  <p className="text-xl text-white/70 leading-relaxed font-light mb-12">
+                    CTF programs are implemented through school-based outreaches, structured mentorship systems, digital learning platforms, conferences, and peer-to-peer learning spaces.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    {['Mentorship', 'School Outreach', 'Digital Learning', 'Prayer Chain'].map((item) => (
+                      <div key={item} className="px-6 py-3 bg-white/10 rounded-full border border-white/20 shadow-lg">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-white">{item}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
             <div className="lg:w-1/2 relative z-10">
               <img src={programsFeatureImg} alt="CTF gathering" className="w-full rounded-[40px] object-cover shadow-2xl" />
             </div>
